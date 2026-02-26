@@ -1,10 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import 'core/routing/app_router.dart';
-import 'features/auth/presentation/screen/SplashScreen.dart';
-void main() {
-  runApp(const MyApp());
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [
+        Locale('en'),
+        Locale('ar'),
+      ],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en'),
+      saveLocale: true,
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -14,10 +29,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
-      builder: (context, child) => MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-       routerConfig: AppRouter.router,
-      ),
+      builder: (context, child) =>
+          MaterialApp.router(
+            key: ValueKey(context.locale.languageCode),
+            routerConfig: AppRouter.router,
+            debugShowCheckedModeBanner: false,
+            locale: context.locale,
+            supportedLocales: context.supportedLocales,
+            localizationsDelegates: context.localizationDelegates,
+          )
     );
   }
 }

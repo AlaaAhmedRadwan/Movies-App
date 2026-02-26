@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movies_app/features/auth/presentation/screen/LoginScreen.dart';
 
 import '../../features/auth/presentation/screen/SplashScreen.dart';
 
@@ -18,7 +19,7 @@ class AppRouter {
     routes: [
       GoRoute(
         path: splash,
-        builder: (context, state) => const SplashScreen(),
+        builder: (context, state) => const LoginScreen(),
       ),
 
       GoRoute(
@@ -28,7 +29,7 @@ class AppRouter {
 
       GoRoute(
         path: login,
-        builder: (context, state) => const Scaffold(body: Center(child: Text('Login Screen'))),
+        builder: (context, state) => const LoginScreen(),
       ),
 
       GoRoute(
