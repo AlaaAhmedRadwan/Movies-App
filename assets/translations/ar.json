@@ -27,5 +27,14 @@
   "create_account": "إنشاء حساب",
   "dont_have_account": "ليس لديك حساب ؟",
   "login_google": "الدخول باستخدام جوجل",
-  "or": "أو"
+  "or": "أو",
+  "register": "إنشاء حساب",
+  "confirm_password": "تأكيد كلمة المرور",
+  "name": "الاسم",
+  "phone_number": "رقم الهاتف",
+  "create_one": "سجل الآن",
+  "already_have_account": "لديك حساب بالفعل ؟",
+  "login_with_google": "الدخول بواسطة جوجل",
+  "avatar": "الصورة الشخصية"
+
 }

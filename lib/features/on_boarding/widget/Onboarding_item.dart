@@ -79,7 +79,7 @@ class _OnboardingItemState extends State<OnboardingItem> {
                              SizedBox(height: 24.h,),
                              if (isFirst) ...[
                           CustomButton(
-                            title: Stringsmanager.exploreNow.tr(),
+                            title: StringsManager.exploreNow.tr(),
                             onClick: () {
                               widget.controller.nextPage(
                                 duration: const Duration(milliseconds: 300),
@@ -87,7 +87,7 @@ class _OnboardingItemState extends State<OnboardingItem> {
                           ),]
                              else if (isSecond) ...[
                           CustomButton(
-                            title: Stringsmanager.next.tr(),
+                            title: StringsManager.next.tr(),
                             onClick: () {
                               widget.controller.nextPage(
                                 duration: const Duration(milliseconds: 300),
@@ -96,8 +96,8 @@ class _OnboardingItemState extends State<OnboardingItem> {
                              else ...[
                                 CustomButton(
                                   title: isLast
-                                      ? Stringsmanager.finish.tr()
-                                      : Stringsmanager.next.tr(),
+                                      ? StringsManager.finish.tr()
+                                      : StringsManager.next.tr(),
                                   onClick: () {
                                     if (isLast) {
                                       context.go(AppRouter.login);
@@ -109,7 +109,7 @@ class _OnboardingItemState extends State<OnboardingItem> {
                                 ),
                             SizedBox(height: 12.h),
                             CustomButton(
-                              title: Stringsmanager.back.tr(),
+                              title: StringsManager.back.tr(),
                               backgroundColor: ColorsManager.PrimaryColor,
                               textColor: ColorsManager.onPrimaryColor,
                               onClick: () {

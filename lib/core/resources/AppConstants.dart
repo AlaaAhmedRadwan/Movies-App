@@ -7,17 +7,17 @@ import '../../model/OnboardingModel.dart';
 
 abstract final class Appconstants {
  static List<Onboardingmodel> OnboardingList =[
-  Onboardingmodel(image: Assetsmanager.Onboarding1, title: Stringsmanager.title_onboarding1,
-  desc: Stringsmanager.desc_onboarding1),
-   Onboardingmodel(image: Assetsmanager.Onboarding2, title: Stringsmanager.title_onboarding2,
-       desc: Stringsmanager.desc_onboarding2),
-   Onboardingmodel(image: Assetsmanager.Onboarding3, title: Stringsmanager.title_onboarding3,
-       desc: Stringsmanager.desc_onboarding3),
-   Onboardingmodel(image: Assetsmanager.Onboarding4, title: Stringsmanager.title_onboarding4,
-       desc: Stringsmanager.desc_onboarding4),
-   Onboardingmodel(image: Assetsmanager.Onboarding5, title: Stringsmanager.title_onboarding5,
-       desc: Stringsmanager.desc_onboarding5),
-   Onboardingmodel(image: Assetsmanager.Onboarding6, title: Stringsmanager.title_onboarding6,),
+  Onboardingmodel(image: Assetsmanager.Onboarding1, title: StringsManager.titleOnboarding1,
+  desc: StringsManager.descOnboarding1),
+   Onboardingmodel(image: Assetsmanager.Onboarding2, title: StringsManager.titleOnboarding2,
+       desc: StringsManager.descOnboarding2),
+   Onboardingmodel(image: Assetsmanager.Onboarding3, title: StringsManager.titleOnboarding2,
+       desc: StringsManager.descOnboarding3),
+   Onboardingmodel(image: Assetsmanager.Onboarding4, title: StringsManager.titleOnboarding3,
+       desc: StringsManager.descOnboarding4),
+   Onboardingmodel(image: Assetsmanager.Onboarding5, title: StringsManager.titleOnboarding4,
+       desc: StringsManager.descOnboarding5),
+   Onboardingmodel(image: Assetsmanager.Onboarding6, title: StringsManager.titleOnboarding5,),
  ];
 
 }
