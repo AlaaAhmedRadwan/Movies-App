@@ -1,33 +1,31 @@
-import 'package:easy_localization/easy_localization.dart';
-
 abstract final class StringsManager {
-  static String titleOnboarding1 = "title_onboarding1".tr();
-  static String descOnboarding1 = "desc_onboarding1".tr();
-  static String titleOnboarding2 = "title_onboarding2".tr();
-  static String descOnboarding2 = "desc_onboarding2".tr();
-  static String titleOnboarding3 = "title_onboarding3".tr();
-  static String descOnboarding3 = "desc_onboarding3".tr();
-  static String titleOnboarding4 = "title_onboarding4".tr();
-  static String descOnboarding4 = "desc_onboarding4".tr();
-  static String titleOnboarding5 = "title_onboarding5".tr();
-  static String descOnboarding5 = "desc_onboarding5".tr();
-  static String titleOnboarding6 = "title_onboarding6".tr();
-  static String exploreNow = "exploreNow".tr();
-  static String next = "next".tr();
-  static String back = "back".tr();
-  static String finish = "finish".tr();
-  static String avatar = "avatar".tr();
+  static const titleOnboarding1 = "title_onboarding1";
+  static const descOnboarding1 = "desc_onboarding1";
+  static const titleOnboarding2 = "title_onboarding2";
+  static const descOnboarding2 = "desc_onboarding2";
+  static const titleOnboarding3 = "title_onboarding3";
+  static const descOnboarding3 = "desc_onboarding3";
+  static const titleOnboarding4 = "title_onboarding4";
+  static const descOnboarding4 = "desc_onboarding4";
+  static const titleOnboarding5 = "title_onboarding5";
+  static const descOnboarding5 = "desc_onboarding5";
+  static const titleOnboarding6 = "title_onboarding6";
 
+  static const exploreNow = "exploreNow";
+  static const next = "next";
+  static const back = "back";
+  static const finish = "finish";
+  static const avatar = "avatar";
 
-  static String login = "login".tr();
-  static String name = "name".tr();
-  static String confirmPassword = "confirm_password".tr();
-  static String email = "email".tr();
-  static String password = "password".tr();
-  static String phoneNumber = "phone_number".tr();
-  static String forgetPassword = "forget_password".tr();
-  static String createAccount = "create_account".tr();
-  static String dontHaveAccount = "dont_have_account".tr();
-  static String loginGoogle = "login_google".tr();
-  static String or = "or".tr();
+  static const login = "login";
+  static const name = "name";
+  static const confirmPassword = "confirm_password";
+  static const email = "email";
+  static const password = "password";
+  static const phoneNumber = "phone_number";
+  static const forgetPassword = "forget_password";
+  static const createAccount = "create_account";
+  static const dontHaveAccount = "dont_have_account";
+  static const loginGoogle = "login_google";
+  static const or = "or";
 }

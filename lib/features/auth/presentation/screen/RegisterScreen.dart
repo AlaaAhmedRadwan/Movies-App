@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -26,7 +27,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           onPressed: () => context.pop(),
         ),
         title: Text(
-          StringsManager.createAccount,
+          StringsManager.createAccount.tr(),
           style: TextStyle(color: const Color(0xFFFFC107), fontSize: 18.sp),
         ),
         centerTitle: true,
@@ -40,15 +41,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
               const AvatarSelector(),
               SizedBox(height: 30.h),
 
-              CustomAuthTextField(hintText: StringsManager.name, prefixIcon: Icons.badge_outlined),
+              CustomAuthTextField(hintText: StringsManager.name.tr(), prefixIcon: Icons.badge_outlined),
               SizedBox(height: 16.h),
-              CustomAuthTextField(hintText: StringsManager.email, prefixIcon: Icons.email),
+              CustomAuthTextField(hintText: StringsManager.email.tr(), prefixIcon: Icons.email),
               SizedBox(height: 16.h),
-              CustomAuthTextField(hintText: StringsManager.password, prefixIcon: Icons.lock, isPassword: true),
+              CustomAuthTextField(hintText: StringsManager.password.tr(), prefixIcon: Icons.lock, isPassword: true),
               SizedBox(height: 16.h),
-              CustomAuthTextField(hintText: StringsManager.confirmPassword, prefixIcon: Icons.lock, isPassword: true),
+              CustomAuthTextField(hintText: StringsManager.confirmPassword.tr(), prefixIcon: Icons.lock, isPassword: true),
               SizedBox(height: 16.h),
-              CustomAuthTextField(hintText: StringsManager.phoneNumber, prefixIcon: Icons.phone),
+              CustomAuthTextField(hintText: StringsManager.phoneNumber.tr(), prefixIcon: Icons.phone),
 
               SizedBox(height: 30.h),
 
@@ -63,7 +64,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r)),
                   ),
                   child: Text(
-                    StringsManager.createAccount,
+                    StringsManager.createAccount.tr(),
                     style: TextStyle(color: Colors.black, fontSize: 18.sp, fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -75,11 +76,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(StringsManager.dontHaveAccount, style: TextStyle(color: Colors.white, fontSize: 14.sp)),
+                  Text(StringsManager.dontHaveAccount.tr(), style: TextStyle(color: Colors.white, fontSize: 14.sp)),
                   TextButton(
                     onPressed: () => context.pop(),
                     child: Text(
-                      StringsManager.login,
+                      StringsManager.login.tr(),
                       style: TextStyle(color: const Color(0xFFFFC107), fontWeight: FontWeight.bold),
                     ),
                   ),
@@ -121,7 +122,7 @@ class AvatarSelector extends StatelessWidget {
         ),
         SizedBox(height: 8.h),
         Text(
-          StringsManager.avatar,
+          StringsManager.avatar.tr(),
           style: TextStyle(color: Colors.white, fontSize: 16.sp),
         ),
       ],
