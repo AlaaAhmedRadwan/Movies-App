@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movies_app/core/resources/AssetsManager.dart';
 import 'package:movies_app/core/resources/StringsManager.dart';
 
 import '../widgets/CustomAuthTextField.dart';
@@ -27,7 +28,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           onPressed: () => context.pop(),
         ),
         title: Text(
-          StringsManager.createAccount.tr(),
+          StringsManager.register.tr(),
           style: TextStyle(color: const Color(0xFFFFC107), fontSize: 18.sp),
         ),
         centerTitle: true,
@@ -98,29 +99,59 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 }
 
-class AvatarSelector extends StatelessWidget {
+class AvatarSelector extends StatefulWidget {
   const AvatarSelector({super.key});
+
+  @override
+  State<AvatarSelector> createState() => _AvatarSelectorState();
+}
+
+class _AvatarSelectorState extends State<AvatarSelector> {
+  int selectedIndex = 1;
+
+  final List<String> avatars = [
+    Assetsmanager.avatar1,
+    Assetsmanager.avatar2,
+    Assetsmanager.avatar3,
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
+
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            CircleAvatar(radius: 40.r, backgroundImage: const AssetImage('assets/images/avatar1.png')),
-            SizedBox(width: 10.w),
-            CircleAvatar(
-              radius: 65.r,
-              backgroundColor: Colors.white,
-              child: CircleAvatar(radius: 62.r, backgroundImage: const AssetImage('assets/images/avatar_main.png')),
-            ),
-            SizedBox(width: 10.w),
-            CircleAvatar(radius: 40.r, backgroundImage: const AssetImage('assets/images/avatar2.png')),
-          ],
+          children: List.generate(avatars.length, (index) {
+
+            bool isSelected = selectedIndex == index;
+
+            return GestureDetector(
+              onTap: () {
+                setState(() {
+                  selectedIndex = index;
+                });
+              },
+              child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 6.w),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: isSelected
+                      ? Border.all(color: const Color(0xFFFFC107), width: 3)
+                      : null,
+                ),
+                child: CircleAvatar(
+                  radius: isSelected ? 65.r : 40.r,
+                  backgroundImage: AssetImage(avatars[index]),
+                ),
+              ),
+            );
+          }),
         ),
+
         SizedBox(height: 8.h),
+
         Text(
           StringsManager.avatar.tr(),
           style: TextStyle(color: Colors.white, fontSize: 16.sp),

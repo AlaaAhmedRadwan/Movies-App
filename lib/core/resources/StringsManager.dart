@@ -16,7 +16,6 @@ abstract final class StringsManager {
   static const back = "back";
   static const finish = "finish";
   static const avatar = "avatar";
-
   static const login = "login";
   static const name = "name";
   static const confirmPassword = "confirm_password";
@@ -28,4 +27,5 @@ abstract final class StringsManager {
   static const dontHaveAccount = "dont_have_account";
   static const loginGoogle = "login_google";
   static const or = "or";
+  static const register = "Register";
 }
