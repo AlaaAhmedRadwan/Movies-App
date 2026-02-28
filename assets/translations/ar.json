@@ -35,6 +35,8 @@
   "register": "تسجيل",
   "already_have_account": "لديك حساب بالفعل ؟",
   "login_with_google": "الدخول بواسطة جوجل",
-  "avatar": "الصورة الشخصية"
+  "avatar": "الصورة الشخصية",
+  "verifyemail": "تأكيد الإيميل",
+  "forgetPass": "نسيت كلمة السر"
 
 }

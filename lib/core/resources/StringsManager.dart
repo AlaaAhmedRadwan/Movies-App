@@ -28,4 +28,6 @@ abstract final class StringsManager {
   static const loginGoogle = "login_google";
   static const or = "or";
   static const register = "Register";
+  static const verifyemail = "Verify Email";
+  static const forgetPass = "Forget Password";
 }

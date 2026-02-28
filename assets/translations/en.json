@@ -30,5 +30,7 @@
 
   "already_have_account": "Already Have Account ?",
   "login_with_google": "Login With Google",
-  "avatar": "Avatar"
+  "avatar": "Avatar",
+  "verifyemail" :"Verify Email",
+  "forgetPass" : "Forget Password"
 }

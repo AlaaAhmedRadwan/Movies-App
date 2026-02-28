@@ -11,4 +11,5 @@ abstract final class Assetsmanager {
   static const String avatar1="assets/images/avatar(1).png";
   static const String avatar2="assets/images/avatar2.png";
   static const String avatar3="assets/images/avatar3.png";
+  static const String forgotpass="assets/images/Forgot password.png";
 }

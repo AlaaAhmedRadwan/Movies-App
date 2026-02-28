@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:movies_app/core/resources/AssetsManager.dart';
 import 'package:movies_app/core/resources/StringsManager.dart';
 
+import '../../../../core/routing/app_router.dart';
 import '../widgets/CustomAuthTextField.dart';
 import '../widgets/LanguageToggle.dart';
 
@@ -59,7 +60,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 width: double.infinity,
                 height: 55.h,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.go(AppRouter.home);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFFFC107),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r)),
@@ -79,7 +82,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 children: [
                   Text(StringsManager.dontHaveAccount.tr(), style: TextStyle(color: Colors.white, fontSize: 14.sp)),
                   TextButton(
-                    onPressed: () => context.pop(),
+                    onPressed: () => context.pop("login"),
                     child: Text(
                       StringsManager.login.tr(),
                       style: TextStyle(color: const Color(0xFFFFC107), fontWeight: FontWeight.bold),
