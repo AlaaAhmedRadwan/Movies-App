@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movies_app/features/auth/presentation/screen/ForgetpassScreen.dart';
+import 'package:movies_app/features/auth/presentation/screen/ForgetPasswordScreen.dart';
 import 'package:movies_app/features/auth/presentation/screen/LoginScreen.dart';
 import 'package:movies_app/features/on_boarding/screen/On_boarding.dart';
 
@@ -22,7 +22,7 @@ class AppRouter {
     routes: [
       GoRoute(
         path: splash,
-        builder: (context, state) => const LoginScreen(),
+        builder: (context, state) => const SplashScreen(),
       ),
 
       GoRoute(
@@ -42,7 +42,7 @@ class AppRouter {
 
       GoRoute(
         path: forgetPassword,
-        builder: (context, state) => const Scaffold(body: Center(child: Text('Forget Password Screen'))),
+        builder: (context, state) => const ForgetPasswordScreen(),
       ),
 
       GoRoute(

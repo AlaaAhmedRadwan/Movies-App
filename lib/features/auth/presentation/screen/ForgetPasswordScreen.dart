@@ -10,15 +10,15 @@ import '../../../../core/reusable/CustomButton.dart';
 import '../../../../core/utils/validators.dart';
 import '../widgets/CustomAuthTextField.dart';
 
-class ForgetpassScreen extends StatefulWidget {
+class ForgetPasswordScreen extends StatefulWidget {
 
-  const ForgetpassScreen({super.key});
+  const ForgetPasswordScreen({super.key});
 
   @override
-  State<ForgetpassScreen> createState() => _ForgetpassScreenState();
+  State<ForgetPasswordScreen> createState() => _ForgetPasswordScreenState();
 }
 
-class _ForgetpassScreenState extends State<ForgetpassScreen> {
+class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   late TextEditingController emailController;
   @override
