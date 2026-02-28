@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -21,6 +22,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
+  bool isLoading = false;
+
   @override
   void dispose() {
     emailController.dispose();
@@ -28,8 +31,29 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
-  void _onLoginPressed() {
-    if (_formKey.currentState!.validate()) {
+  Future<void> _onLoginPressed() async {
+    if (!_formKey.currentState!.validate()) return;
+
+    setState(() => isLoading = true);
+
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
+      );
+
+      if (!mounted) return;
+
+      context.go('/home');
+    } on FirebaseAuthException catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(e.message ?? 'Login failed'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    } finally {
+      if (mounted) setState(() => isLoading = false);
     }
   }
 
@@ -81,7 +105,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+
+                    },
                     child: Text(
                       AppStrings.forgetPassword.tr(),
                       style: const TextStyle(
@@ -96,14 +122,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: double.infinity,
                   height: 50.h,
                   child: ElevatedButton(
-                    onPressed: _onLoginPressed,
+                    onPressed: isLoading ? null : _onLoginPressed,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFFFC107),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.r),
                       ),
                     ),
-                    child: Text(
+                    child: isLoading
+                        ? const CircularProgressIndicator(
+                      color: Colors.black,
+                    )
+                        : Text(
                       AppStrings.login.tr(),
                       style: TextStyle(
                         color: Colors.black,
@@ -161,7 +191,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 SizedBox(height: 16.h),
 
-                /// Google Login
                 SizedBox(
                   width: double.infinity,
                   height: 50.h,
@@ -189,7 +218,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 SizedBox(height: 20.h),
 
-                 LanguageToggle(),
+                const LanguageToggle(),
               ],
             ),
           ),
