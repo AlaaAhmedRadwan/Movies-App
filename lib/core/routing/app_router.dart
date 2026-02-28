@@ -21,7 +21,7 @@ class AppRouter {
     routes: [
       GoRoute(
         path: splash,
-        builder: (context, state) => const RegisterScreen(),
+        builder: (context, state) => const LoginScreen(),
       ),
 
       GoRoute(
@@ -36,7 +36,7 @@ class AppRouter {
 
       GoRoute(
         path: register,
-        builder: (context, state) => const Scaffold(body: Center(child: Text('Register Screen'))),
+        builder: (context, state) => const RegisterScreen(),
       ),
 
       GoRoute(
