@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movies_app/features/auth/presentation/screen/ForgetpassScreen.dart';
 import 'package:movies_app/features/auth/presentation/screen/LoginScreen.dart';
 import 'package:movies_app/features/on_boarding/screen/On_boarding.dart';
 
