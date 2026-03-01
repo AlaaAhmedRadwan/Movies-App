@@ -1,0 +1,72 @@
+import 'package:flutter/material.dart';
+import 'package:movies_app/core/resources/ColorsManager.dart';
+import 'package:movies_app/features/home/domain/entities/movie.dart';
+
+class Moviesitem extends StatelessWidget {
+  final int index;
+  final int selectedIndex;
+  final Movie movie;
+
+  const Moviesitem({
+    super.key,
+    required this.index,
+    required this.selectedIndex,
+    required this.movie,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final bool isSelected = index == selectedIndex;
+
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      margin: EdgeInsets.symmetric(
+        horizontal: 8,
+        vertical: isSelected ? 0 : 20,
+      ),
+      height: isSelected ? 320 : 290,
+      child: Stack(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Image.network(
+              movie.poster,
+              fit: BoxFit.cover,
+              height: isSelected ? 320 : 290,
+              width: double.infinity,
+              errorBuilder: (_, __, ___) => Container(
+                color: Colors.grey[800],
+                child: const Icon(Icons.movie, color: Colors.white54, size: 60),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 10,
+            left: 10,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+              decoration: BoxDecoration(
+                color: Colors.black.withValues(alpha: 0.7),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Row(
+                children: [
+                  Text(
+                    movie.rating.toStringAsFixed(1),
+                    style: const TextStyle(color: Colors.white, fontSize: 12),
+                  ),
+                  const SizedBox(width: 4),
+                  const Icon(
+                    Icons.star,
+                    color: ColorsManager.onPrimaryColor,
+                    size: 14,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

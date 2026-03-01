@@ -19,9 +19,8 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.9.2
-
-# Dependencies specify other packages that your package needs in order to work.
+  sdk: ">=3.8.0 <4.0.0"
+  # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
 # consider running `flutter pub upgrade --major-versions`. Alternatively,
 # dependencies can be manually updated by changing the version numbers below to
@@ -38,15 +37,26 @@ dependencies:
   go_router: ^17.1.0
   easy_localization: ^3.0.8
   flutter_native_splash: ^2.4.7
-  flutter_launcher_icons: ^0.14.4
   firebase_core: ^3.6.0
   firebase_auth: ^5.3.0
+  flutter_bloc: ^9.1.0
+  dio: ^5.9.0
+  retrofit: ^4.4.1
+  json_annotation: ^4.8.1
+
+  get_it: ^9.2.1
+  injectable: ^2.7.1+4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_launcher_icons: ^0.14.4
-
+  build_runner: ^2.4.9
+  retrofit_generator: ^10.0.0
+  injectable_generator: ^2.7.0
+  json_serializable: ^6.9.5
+  flutter_launcher_icons: ^0.13.1
+  flutter_lints: ^5.0.0
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true

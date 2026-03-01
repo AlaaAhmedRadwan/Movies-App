@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
-import '../../../model/BoosterModel.dart';
+import 'package:movies_app/features/home/domain/entities/movie.dart';
 
 class SmallMovieItem extends StatelessWidget {
-  final Boostermodel movie;
+  final Movie movie;
 
   const SmallMovieItem({super.key, required this.movie});
 
@@ -15,36 +14,35 @@ class SmallMovieItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         child: Stack(
           children: [
-            Image.asset(
-              movie.imagePath,
+            Image.network(
+              movie.poster,
               width: 130,
               height: 180,
               fit: BoxFit.cover,
+              errorBuilder: (_, __, ___) => Container(
+                width: 130,
+                height: 180,
+                color: Colors.grey[800],
+                child: const Icon(Icons.movie, color: Colors.white54),
+              ),
             ),
             Positioned(
               top: 8,
               left: 8,
               child: Container(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 6, vertical: 3),
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.7),
+                  color: Colors.black.withValues(alpha: 0.7),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Row(
                   children: [
                     Text(
-                      movie.rating.toString(),
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 11),
+                      movie.rating.toStringAsFixed(1),
+                      style: const TextStyle(color: Colors.white, fontSize: 11),
                     ),
-                    SizedBox(width: 3),
-                     Icon(
-                      Icons.star,
-                      color: Colors.amber,
-                      size: 13,
-                    ),
+                    const SizedBox(width: 3),
+                    const Icon(Icons.star, color: Colors.amber, size: 13),
                   ],
                 ),
               ),
