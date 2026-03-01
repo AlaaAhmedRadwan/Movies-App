@@ -12,4 +12,11 @@ abstract final class Assetsmanager {
   static const String avatar2="assets/images/avatar2.png";
   static const String avatar3="assets/images/avatar3.png";
   static const String forgotpass="assets/images/Forgot password.png";
+  static const String movies1="assets/images/movies1.jpg";
+  static const String movies2="assets/images/movies2.png";
+  static const String movies3="assets/images/movies3.jpg";
+  static const String movies4="assets/images/movies4.jpg";
+  static const String movies5="assets/images/movies5.jpg";
+  static const String Available="assets/images/Available.png";
+  static const String watch ="assets/images/watch.png";
 }
