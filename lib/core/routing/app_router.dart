@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movies_app/features/auth/presentation/screen/ForgetpassScreen.dart';
 import 'package:movies_app/features/auth/presentation/screen/LoginScreen.dart';
-import 'package:movies_app/features/home/screen/Home_Screen.dart';
-import 'package:movies_app/features/on_boarding/screen/On_boarding.dart';
+import 'package:movies_app/features/home/screen/HomeScreen.dart';
+import 'package:movies_app/features/on_boarding/screen/OnBoarding.dart';
 
 import '../../features/auth/presentation/screen/RegisterScreen.dart';
 import '../../features/auth/presentation/screen/SplashScreen.dart';

@@ -7,14 +7,14 @@ import 'package:movies_app/features/home/widget/Small_MovieItem.dart';
 import '../../../../core/resources/AppConstants.dart';
 import '../../../../core/resources/AssetsManager.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class HomeTap extends StatefulWidget {
+  const HomeTap({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeTap> createState() => _HomeTapState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeTapState extends State<HomeTap> {
   @override
   PageController controller=PageController(
     viewportFraction: 0.5,
