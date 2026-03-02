@@ -14,7 +14,7 @@ abstract class MoviesApiService {
       }) = _MoviesApiService;
 
   @GET('list_movies.json')
-  Future<MoviesResponse> getMovies(
+  Future<MovieResponse> getMovies(
       @Query('page') int page,
       @Query('limit') int limit,
       );

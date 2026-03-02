@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/resources/ColorsManager.dart';
 import 'package:movies_app/features/home/domain/entities/movie.dart';
@@ -29,12 +30,16 @@ class Moviesitem extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: Image.network(
-              movie.poster,
+            child: CachedNetworkImage(
+              imageUrl: movie.poster,
               fit: BoxFit.cover,
               height: isSelected ? 320 : 290,
               width: double.infinity,
-              errorBuilder: (_, __, ___) => Container(
+              placeholder: (_, __) => Container(
+                color: Colors.grey[900],
+                child: const Center(child: CircularProgressIndicator()),
+              ),
+              errorWidget: (_, __, ___) => Container(
                 color: Colors.grey[800],
                 child: const Icon(Icons.movie, color: Colors.white54, size: 60),
               ),

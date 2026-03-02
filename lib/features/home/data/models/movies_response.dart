@@ -4,21 +4,33 @@ import 'movie_model.dart';
 part 'movies_response.g.dart';
 
 @JsonSerializable()
-class MoviesResponse {
-  final DataResponse data;
+class MovieResponse {
+  final String? status;
 
-  MoviesResponse({required this.data});
+  @JsonKey(name: 'status_message')
+  final String? statusMessage;
 
-  factory MoviesResponse.fromJson(Map<String, dynamic> json) =>
-      _$MoviesResponseFromJson(json);
+  final Data? data;
+
+  MovieResponse({this.status, this.statusMessage, this.data});
+
+  factory MovieResponse.fromJson(Map<String, dynamic> json) =>
+      _$MovieResponseFromJson(json);
 }
 
 @JsonSerializable()
-class DataResponse {
-  final List<MovieModel> movies;
+class Data {
+  @JsonKey(name: 'movie_count')
+  final int? movieCount;
 
-  DataResponse({required this.movies});
+  final int? limit;
 
-  factory DataResponse.fromJson(Map<String, dynamic> json) =>
-      _$DataResponseFromJson(json);
+  @JsonKey(name: 'page_number')
+  final int? pageNumber;
+
+  final List<MovieModel>? movies;
+
+  Data({this.movieCount, this.limit, this.pageNumber, this.movies});
+
+  factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 }

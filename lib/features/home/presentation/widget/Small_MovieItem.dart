@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/features/home/domain/entities/movie.dart';
 
@@ -14,12 +15,18 @@ class SmallMovieItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         child: Stack(
           children: [
-            Image.network(
-              movie.poster,
+            CachedNetworkImage(
+              imageUrl: movie.poster,
               width: 130,
               height: 180,
               fit: BoxFit.cover,
-              errorBuilder: (_, __, ___) => Container(
+              placeholder: (_, __) => Container(
+                width: 130,
+                height: 180,
+                color: Colors.grey[900],
+                child: const Center(child: CircularProgressIndicator()),
+              ),
+              errorWidget: (_, __, ___) => Container(
                 width: 130,
                 height: 180,
                 color: Colors.grey[800],
