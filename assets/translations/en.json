@@ -32,5 +32,9 @@
   "login_with_google": "Login With Google",
   "avatar": "Avatar",
   "verifyemail" :"Verify Email",
-  "forgetPass" : "Forget Password"
+  "forgetPass" : "Forget Password",
+  "watch" : "Watch",
+  "screenshot" :  "Screen Shots",
+  "similar": "Similar",
+  "summary": "Summary"
 }

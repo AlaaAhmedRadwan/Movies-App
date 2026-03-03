@@ -19,4 +19,8 @@ abstract final class Assetsmanager {
   static const String movies5="assets/images/movies5.jpg";
   static const String Available="assets/images/Available.png";
   static const String watch ="assets/images/watch.png";
+  static const String watchbutton ="assets/images/Watchbutton.png";
+  static const String screenshot1="assets/images/Screenshot1.jpg";
+  static const String screenshot2="assets/images/Screenshot2.jpg";
+  static const String screenshot3="assets/images/Screenshot3.jpg";
 }

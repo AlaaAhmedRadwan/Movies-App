@@ -74,6 +74,15 @@ class _HomeTapState extends State<HomeTap> {
                         Container(color: Colors.grey[900]),
                   ),
                 ),
+                Positioned.fill(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                        colors: [
+                          Colors.black,
+                          Colors.transparent,],),),),),
                 SafeArea(
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 20),

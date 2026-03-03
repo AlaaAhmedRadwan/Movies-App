@@ -7,6 +7,8 @@ import 'package:movies_app/features/on_boarding/screen/OnBoarding.dart';
 
 import '../../features/auth/presentation/screen/RegisterScreen.dart';
 import '../../features/auth/presentation/screen/SplashScreen.dart';
+import '../../features/home/domain/entities/movie.dart';
+import '../../features/home/presentation/screen/MovieDetails.dart';
 
 class AppRouter {
   static const String splash = '/';
@@ -56,8 +58,8 @@ class AppRouter {
       GoRoute(
         path: movieDetails,
         builder: (context, state) {
-          final movie = state.extra;
-          return const Scaffold(body: Center(child: Text('Movie Details Screen')));
+          final movie = state.extra as Movie;
+          return Moviedetails(movie: movie);
         },
       ),
     ],
