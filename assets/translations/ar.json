@@ -37,6 +37,13 @@
   "login_with_google": "الدخول بواسطة جوجل",
   "avatar": "الصورة الشخصية",
   "verifyemail": "تأكيد الإيميل",
-  "forgetPass": "نسيت كلمة السر"
+  "forgetPass": "نسيت كلمة السر",
+  "watch" : "مشاهدة",
+  "screenshot" : "لقطات الشاشة",
+  "similar": "أفلام مشابهة",
+  "summary": "ملخص الفيلم"
+
+
+
 
 }

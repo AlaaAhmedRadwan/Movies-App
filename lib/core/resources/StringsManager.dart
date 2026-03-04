@@ -30,4 +30,8 @@ abstract final class StringsManager {
   static const register = "Register";
   static const verifyemail = "Verify Email";
   static const forgetPass = "Forget Password";
+  static const watch = "Watch";
+  static const screenshot =  "Screen Shots";
+  static const similar= "Similar";
+  static const summary="Summary";
 }

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/resources/AppConstants.dart';
-import '../widget/Onboarding_item.dart';
+import '../widget/OnboardingItem.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({super.key});

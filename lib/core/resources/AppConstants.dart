@@ -1,7 +1,8 @@
 
- import 'package:easy_localization/easy_localization.dart';
+
 import 'package:movies_app/core/resources/AssetsManager.dart';
 import 'package:movies_app/core/resources/StringsManager.dart';
+import 'package:movies_app/model/BoosterModel.dart';
 
 import '../../model/OnboardingModel.dart';
 
@@ -18,6 +19,20 @@ abstract final class Appconstants {
    Onboardingmodel(image: Assetsmanager.Onboarding5, title: StringsManager.titleOnboarding4,
        desc: StringsManager.descOnboarding5),
    Onboardingmodel(image: Assetsmanager.Onboarding6, title: StringsManager.titleOnboarding5,),
+ ];
+ static List<Boostermodel> moviesList =[
+   Boostermodel(imagePath: Assetsmanager.movies1, rating: 7.7),
+   Boostermodel(imagePath: Assetsmanager.movies2, rating: 7.7),
+   Boostermodel(imagePath: Assetsmanager.movies3, rating: 7.7),
+   Boostermodel(imagePath: Assetsmanager.movies4, rating: 7.7),
+   Boostermodel(imagePath: Assetsmanager.movies5, rating: 7.7),
+ ];
+ static List<String> genresList = [
+   "Action",
+   "Comedy",
+   "Drama",
+   "Horror",
+   "Romance",
  ];
 
 }
