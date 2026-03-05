@@ -34,4 +34,6 @@ abstract final class StringsManager {
   static const screenshot =  "Screen Shots";
   static const similar= "Similar";
   static const summary="Summary";
+  static const cast="Cast";
+  static const genres="Genres";
 }

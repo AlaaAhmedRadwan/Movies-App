@@ -4,6 +4,7 @@ import 'package:movies_app/core/resources/AssetsManager.dart';
 import 'package:movies_app/core/resources/StringsManager.dart';
 import 'package:movies_app/model/BoosterModel.dart';
 
+import '../../model/Castmodel.dart';
 import '../../model/OnboardingModel.dart';
 
 abstract final class Appconstants {
@@ -33,6 +34,23 @@ abstract final class Appconstants {
    "Drama",
    "Horror",
    "Romance",
+ ];
+ static List<Castmodel> castList=[
+   Castmodel(
+     name: "Hayley Atwell",
+     character: "Captain Carter",
+     image: "https://image.tmdb.org/t/p/w500/7m8wr9RTQGqDNE0LZkJ6v0J3Y0F.jpg",
+   ),
+   Castmodel(
+     name: "Elizabeth Olsen",
+     character: "Wanda Maximoff",
+     image: "https://image.tmdb.org/t/p/w500/wIU675y4Uxhxq4bGJ6Z9kR3Kj2z.jpg",
+   ),
+   Castmodel(
+     name: "Rachel McAdams",
+     character: "Dr Christine Palmer",
+     image: "https://image.tmdb.org/t/p/w500/9eAWf7YbUF6J0V9QjM2gk5jzB9Q.jpg",
+   ),
  ];
 
 }
