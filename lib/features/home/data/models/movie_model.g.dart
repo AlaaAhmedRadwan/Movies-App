@@ -22,13 +22,16 @@ Map<String, dynamic> _$TorrentsToJson(Torrents instance) => <String, dynamic>{
 
 MovieModel _$MovieModelFromJson(Map<String, dynamic> json) => MovieModel(
   id: (json['id'] as num).toInt(),
-  title: json['title'] as String,
-  year: (json['year'] as num).toInt(),
-  rating: (json['rating'] as num).toDouble(),
-  poster: json['medium_cover_image'] as String,
-  genres: (json['genres'] as List<dynamic>).map((e) => e as String).toList(),
-  summary: json['summary'] as String,
-  runtime: (json['runtime'] as num).toInt(),
+  title: json['title'] as String? ?? '',
+  year: (json['year'] as num? ?? 0).toInt(),
+  rating: (json['rating'] as num? ?? 0).toDouble(),
+  poster: json['medium_cover_image'] as String? ?? '',
+  genres: (json['genres'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      [],
+  summary: json['summary'] as String? ?? '',
+  runtime: (json['runtime'] as num? ?? 0).toInt(),
   torrents: (json['torrents'] as List<dynamic>?)
       ?.map((e) => Torrents.fromJson(e as Map<String, dynamic>))
       .toList(),

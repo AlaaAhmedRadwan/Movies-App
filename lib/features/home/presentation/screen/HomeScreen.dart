@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     tabs = [
-      const HomeTap(),
+       HomeTap(),
       SearchTab(),
       BrowseTab(),
        ProfielTab(),
@@ -37,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return BlocProvider(
       create: (_) => sl<MoviesCubit>()..getMovies(),
       child: Scaffold(
+        backgroundColor: Colors.black,
         body: tabs[selectedIndex],
         bottomNavigationBar: NavigationBar(
           selectedIndex: selectedIndex,

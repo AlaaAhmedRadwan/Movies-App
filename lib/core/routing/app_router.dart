@@ -25,7 +25,7 @@ class AppRouter {
     routes: [
       GoRoute(
         path: splash,
-        builder: (context, state) => const HomeScreen(),
+        builder: (context, state) => const LoginScreen(),
       ),
 
       GoRoute(

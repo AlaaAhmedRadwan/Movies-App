@@ -34,4 +34,5 @@ abstract final class StringsManager {
   static const screenshot =  "Screen Shots";
   static const similar= "Similar";
   static const summary="Summary";
+  static const checkPassword="Password reset email sent. Check your inbox.";
 }
