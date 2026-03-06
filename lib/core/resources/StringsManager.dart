@@ -35,4 +35,6 @@ abstract final class StringsManager {
   static const similar= "Similar";
   static const summary="Summary";
   static const checkPassword="Password reset email sent. Check your inbox.";
+  static const cast="Cast";
+  static const genres="Genres";
 }

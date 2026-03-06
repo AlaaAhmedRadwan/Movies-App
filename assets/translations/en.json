@@ -37,6 +37,9 @@
   "screenshot" :  "Screen Shots",
   "similar": "Similar",
   "summary": "Summary",
-  "checkPassword": "Password reset email sent. Check your inbox."
+  "checkPassword": "Password reset email sent. Check your inbox.",
 
+  "summary": "Summary",
+  "Cast":"Cast",
+  "Genres": "Genres"
 }
