@@ -3,7 +3,7 @@ import 'movie_model.dart';
 
 part 'movies_response.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(createToJson: false)
 class MovieResponse {
   final String? status;
 
@@ -18,7 +18,7 @@ class MovieResponse {
       _$MovieResponseFromJson(json);
 }
 
-@JsonSerializable()
+@JsonSerializable(createToJson: false)
 class Data {
   @JsonKey(name: 'movie_count')
   final int? movieCount;

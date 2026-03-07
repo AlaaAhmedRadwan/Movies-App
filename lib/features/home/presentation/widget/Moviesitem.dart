@@ -33,8 +33,8 @@ class Moviesitem extends StatelessWidget {
         onTap: () {
           context.push(
             AppRouter.movieDetails,
-              extra: movie);
-
+            extra: movie,
+          );
         },
         child: Stack(
           children: [

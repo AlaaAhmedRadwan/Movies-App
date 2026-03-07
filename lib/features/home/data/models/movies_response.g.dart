@@ -15,13 +15,6 @@ MovieResponse _$MovieResponseFromJson(Map<String, dynamic> json) =>
           : Data.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$MovieResponseToJson(MovieResponse instance) =>
-    <String, dynamic>{
-      'status': instance.status,
-      'status_message': instance.statusMessage,
-      'data': instance.data,
-    };
-
 Data _$DataFromJson(Map<String, dynamic> json) => Data(
   movieCount: (json['movie_count'] as num?)?.toInt(),
   limit: (json['limit'] as num?)?.toInt(),
@@ -30,10 +23,3 @@ Data _$DataFromJson(Map<String, dynamic> json) => Data(
       ?.map((e) => MovieModel.fromJson(e as Map<String, dynamic>))
       .toList(),
 );
-
-Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
-  'movie_count': instance.movieCount,
-  'limit': instance.limit,
-  'page_number': instance.pageNumber,
-  'movies': instance.movies,
-};

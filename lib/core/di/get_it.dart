@@ -8,8 +8,10 @@ import 'package:movies_app/features/home/data/remote/movies_api_service.dart';
 import 'package:movies_app/features/home/data/repositories/movies_repository_impl.dart';
 
 import 'package:movies_app/features/home/domain/repositories/movies_repository.dart';
+import 'package:movies_app/features/home/domain/usecases/get_movie_details_usecase.dart';
 import 'package:movies_app/features/home/domain/usecases/get_movies_usecase.dart';
 
+import 'package:movies_app/features/home/presentation/cubit/movie_details_cubit.dart';
 import 'package:movies_app/features/home/presentation/cubit/movies_cubit.dart';
 
 final sl = GetIt.instance;
@@ -38,9 +40,21 @@ void setupDependencies() {
     ),
   );
 
+  sl.registerLazySingleton<GetMovieDetailsUseCase>(
+        () => GetMovieDetailsUseCase(
+      sl<MoviesRepository>(),
+    ),
+  );
+
   sl.registerFactory<MoviesCubit>(
         () => MoviesCubit(
       sl<GetMoviesUseCase>(),
+    ),
+  );
+
+  sl.registerFactory<MovieDetailsCubit>(
+        () => MovieDetailsCubit(
+      sl<GetMovieDetailsUseCase>(),
     ),
   );
 }

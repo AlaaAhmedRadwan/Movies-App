@@ -46,7 +46,31 @@
 
   "summary": "ملخص الفيلم",
   "Cast": "طاقم التمثيل",
-  "Genres": "التصنيفات"
+  "Genres": "التصنيفات",
+
+  "profile_change_password": "تغيير كلمة المرور",
+  "profile_language": "اللغة",
+  "profile_about": "عن التطبيق",
+  "profile_sign_out": "تسجيل الخروج",
+  "profile_sign_out_title": "تسجيل الخروج",
+  "profile_sign_out_message": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+  "profile_cancel": "إلغاء",
+  "profile_movie_fan": "محب أفلام",
+  "profile_app_name": "تطبيق الأفلام",
+  "profile_edit_profile": "تعديل الملف الشخصي",
+  "profile_watch_list": "قائمة المشاهدة",
+  "profile_history": "السجل",
+
+  "update_profile_title": "اختر الصورة",
+  "update_profile_name_hint": "الاسم الكامل",
+  "update_profile_phone_hint": "رقم الهاتف",
+  "update_profile_reset_password": "إعادة تعيين كلمة المرور",
+  "update_profile_delete_account": "حذف الحساب",
+  "update_profile_update_data": "تحديث البيانات",
+  "update_profile_success": "تم تحديث الملف الشخصي بنجاح",
+  "update_profile_delete_title": "حذف الحساب",
+  "update_profile_delete_message": "هذا الإجراء لا يمكن التراجع عنه. هل أنت متأكد؟",
+  "update_profile_delete": "حذف"
 
 
 

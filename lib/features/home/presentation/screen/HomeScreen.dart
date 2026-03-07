@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/di/get_it.dart';
 import 'package:movies_app/core/resources/ColorsManager.dart';
 import 'package:movies_app/features/home/presentation/Tabs/Home/HomeTab.dart';
-import 'package:movies_app/features/home/presentation/Tabs/Profiel/Profiel_tab.dart';
+import 'package:movies_app/features/home/presentation/Tabs/Profile/Profile_tab.dart';
 import 'package:movies_app/features/home/presentation/cubit/movies_cubit.dart';
 
 import '../Tabs/Browse/Browse_tab.dart';
@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
        HomeTap(),
       SearchTab(),
       BrowseTab(),
-       ProfielTab(),
+      ProfileTab(),
     ];
   }
 

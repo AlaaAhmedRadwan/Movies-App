@@ -6,6 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/resources/AssetsManager.dart';
 import 'package:movies_app/core/resources/StringsManager.dart';
 import 'package:movies_app/core/reusable/CustomButton.dart';
+import 'package:movies_app/features/home/domain/entities/movie_torrent.dart';
+import 'package:movies_app/features/home/presentation/screen/TorrentPlayerScreen.dart';
 import 'package:movies_app/features/home/presentation/widget/MovieStateItem.dart';
 
 import '../../../../core/resources/ColorsManager.dart';
@@ -16,10 +18,12 @@ class Moviepostersection extends StatelessWidget {
   int runtime;
   double rating;
    int likes;
+  final List<MovieTorrent> torrents;
 
    Moviepostersection({required this.posterUrl,required this.rating,
    required this.title,required this.runtime,
-   required this.year,required this.likes});
+   required this.year,required this.likes,
+   this.torrents = const []});
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +83,8 @@ class Moviepostersection extends StatelessWidget {
             SizedBox(height: 8.h,),
           
             CustomButton(title: StringsManager.watch.tr(), onClick: () {
-        
+              if (torrents.isEmpty) return;
+              _showQualityPicker(context);
             },backgroundColor: ColorsManager.teritaryColor,
             textColor: ColorsManager.SecondaryColor,),
             SizedBox(height: 16.h,),
@@ -95,5 +100,52 @@ class Moviepostersection extends StatelessWidget {
         ])
     )])
           );
+   }
 
-   }}
+  void _showQualityPicker(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: ColorsManager.PrimaryColor,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (_) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              child: Text(
+                'Select Quality',
+                style: TextStyle(
+                  color: ColorsManager.SecondaryColor,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            ...torrents.map((t) => ListTile(
+                  title: Text(
+                    '${t.quality} · ${t.type.toUpperCase()}',
+                    style: TextStyle(color: ColorsManager.SecondaryColor),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => TorrentPlayerScreen(
+                          magnetLink: t.magnetLink(title),
+                          title: title,
+                        ),
+                      ),
+                    );
+                  },
+                )),
+            const SizedBox(height: 8),
+          ],
+        ),
+      ),
+    );
+  }
+}

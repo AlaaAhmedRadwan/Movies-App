@@ -41,5 +41,29 @@
 
   "summary": "Summary",
   "Cast":"Cast",
-  "Genres": "Genres"
+  "Genres": "Genres",
+
+  "profile_change_password": "Change Password",
+  "profile_language": "Language",
+  "profile_about": "About",
+  "profile_sign_out": "Sign Out",
+  "profile_sign_out_title": "Sign Out",
+  "profile_sign_out_message": "Are you sure you want to sign out?",
+  "profile_cancel": "Cancel",
+  "profile_movie_fan": "Movie Fan",
+  "profile_app_name": "Movies App",
+  "profile_edit_profile": "Edit Profile",
+  "profile_watch_list": "Watch List",
+  "profile_history": "History",
+
+  "update_profile_title": "Pick Avatar",
+  "update_profile_name_hint": "Full Name",
+  "update_profile_phone_hint": "Phone Number",
+  "update_profile_reset_password": "Reset Password",
+  "update_profile_delete_account": "Delete Account",
+  "update_profile_update_data": "Update Data",
+  "update_profile_success": "Profile updated successfully",
+  "update_profile_delete_title": "Delete Account",
+  "update_profile_delete_message": "This action is irreversible. Are you sure?",
+  "update_profile_delete": "Delete"
 }

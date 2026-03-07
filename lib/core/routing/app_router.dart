@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movies_app/features/auth/presentation/screen/ForgetPasswordScreen.dart';
 import 'package:movies_app/features/auth/presentation/screen/LoginScreen.dart';
+import 'package:movies_app/features/auth/presentation/screen/SplashScreen.dart';
+import 'package:movies_app/features/auth/presentation/screen/UpdateProfileScreen.dart';
 import 'package:movies_app/features/home/presentation/screen/HomeScreen.dart';
 import 'package:movies_app/features/on_boarding/screen/OnBoarding.dart';
 
 import '../../features/auth/presentation/screen/RegisterScreen.dart';
-import '../../features/auth/presentation/screen/SplashScreen.dart';
 import '../../features/home/domain/entities/movie.dart';
 import '../../features/home/presentation/screen/MovieDetails.dart';
 
@@ -18,6 +19,7 @@ class AppRouter {
   static const String forgetPassword = '/forget-password';
   static const String home = '/home';
   static const String movieDetails = '/movie-details';
+  static const String updateProfile = '/update-profile';
 
   static final GoRouter router = GoRouter(
     initialLocation: splash,
@@ -25,7 +27,7 @@ class AppRouter {
     routes: [
       GoRoute(
         path: splash,
-        builder: (context, state) => const LoginScreen(),
+        builder: (context, state) => const SplashScreen(),
       ),
 
       GoRoute(
@@ -51,7 +53,7 @@ class AppRouter {
       GoRoute(
         path: home,
         builder: (context, state) => const Scaffold(
-          body: Center(child: Text('Home Screen with 4 Tabs')),
+          body: HomeScreen(),
         ),
       ),
 
@@ -61,6 +63,11 @@ class AppRouter {
           final movie = state.extra as Movie;
           return Moviedetails(movie: movie);
         },
+      ),
+
+      GoRoute(
+        path: updateProfile,
+        builder: (context, state) => const UpdateProfileScreen(),
       ),
     ],
     errorBuilder: (context, state) => Scaffold(

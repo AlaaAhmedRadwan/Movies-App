@@ -16,11 +16,12 @@ class SmallMovieItem extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: InkWell(
-          onTap:() {
+          onTap: () {
             context.push(
-               AppRouter.movieDetails,
-                extra: movie);
-          } ,
+              AppRouter.movieDetails,
+              extra: movie,
+            );
+          },
           child: Stack(
             children: [
               CachedNetworkImage(
