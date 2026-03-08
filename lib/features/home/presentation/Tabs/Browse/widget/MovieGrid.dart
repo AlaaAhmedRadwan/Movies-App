@@ -18,7 +18,7 @@ class MovieGrid extends StatelessWidget {
         horizontal: 16
       ),
       child: GridView.builder(
-        itemCount: 10,
+        itemCount: movies.length,
         gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisSpacing: 12,
@@ -29,17 +29,18 @@ class MovieGrid extends StatelessWidget {
           final movie = movies[index];
           return Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(16),
               color: Colors.grey.shade900,
             ),
             child: Stack(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(16),
                   child: CachedNetworkImage(
                     imageUrl: movie.poster,
                     fit: BoxFit.cover,
                     width: double.infinity,
+                    height: double.infinity,
                     placeholder: (_, __) => Container(
                       color: Colors.grey[900],
                       child: const Center(child: CircularProgressIndicator()),

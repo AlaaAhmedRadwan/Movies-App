@@ -40,23 +40,27 @@ class _BrowseTabState extends State<BrowseTab> {
 
             return DefaultTabController(
               length: genres.length,
-              child: Column(
-                children: [
-
-                  GenreTabBar(
-                    genres: genres,
-                    onGenreSelected: (genre) {
-                      setState(() {
-                        selectedGenre = genre;
-                      });
-                    },
-                  ),
-
-                  Expanded(
-                    child: MovieGrid(movies: filteredMovies),
-                  )
-
-                ],
+              child:
+                  
+              SafeArea(
+                child: Column(
+                  children: [
+                
+                    GenreTabBar(
+                      genres: genres,
+                      onGenreSelected: (genre) {
+                        setState(() {
+                          selectedGenre = genre;
+                        });
+                      },
+                    ),
+                
+                    Expanded(
+                      child: MovieGrid(movies: filteredMovies),
+                    )
+                
+                  ],
+                ),
               ),
             );
           }
