@@ -6,7 +6,7 @@ import 'package:movies_app/features/home/presentation/Tabs/Home/HomeTab.dart';
 import 'package:movies_app/features/home/presentation/Tabs/Profile/Profile_tab.dart';
 import 'package:movies_app/features/home/presentation/cubit/movies_cubit.dart';
 
-import '../Tabs/Browse/Browse_tab.dart';
+import '../Tabs/Browse/screen/Browse_tab.dart';
 import '../Tabs/Search/SearchTab.dart';
 
 class HomeScreen extends StatefulWidget {
