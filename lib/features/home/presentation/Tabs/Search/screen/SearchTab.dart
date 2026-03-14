@@ -1,13 +1,16 @@
 import 'dart:async';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/resources/ColorsManager.dart';
 import 'package:movies_app/features/auth/presentation/widgets/CustomAuthTextField.dart';
-import 'package:movies_app/features/home/presentation/Tabs/Browse/widget/MovieGrid.dart';
 import 'package:movies_app/features/home/presentation/cubit/search_cubit.dart';
 import 'package:movies_app/features/home/presentation/cubit/search_state.dart';
+
+import '../../../../../../core/resources/StringsManager.dart';
+import '../widget/MovieGrid.dart';
 
 class SearchTab extends StatefulWidget {
   @override
@@ -45,7 +48,7 @@ class _SearchTabState extends State<SearchTab> {
               child: SizedBox(
                 height: 55.h,
                 child: CustomAuthTextField(
-                  hintText: 'Search movies...',
+                  hintText: StringsManager.searchmovies.tr(),
                   prefixIcon: Icons.search_outlined,
                   controller: _controller,
                   onChanged: _onChanged,
@@ -72,7 +75,7 @@ class _SearchTabState extends State<SearchTab> {
                   if (state is SearchEmpty) {
                     return Center(
                       child: Text(
-                        'No results found',
+                        StringsManager.noresultsfound.tr(),
                         style: TextStyle(color: Colors.white54, fontSize: 16.sp),
                       ),
                     );
@@ -80,7 +83,7 @@ class _SearchTabState extends State<SearchTab> {
                   if (state is SearchError) {
                     return Center(
                       child: Text(
-                        state.message,
+                        state.message.tr(),
                         style: TextStyle(color: Colors.red, fontSize: 14.sp),
                         textAlign: TextAlign.center,
                       ),
@@ -104,7 +107,7 @@ class _SearchTabState extends State<SearchTab> {
           Icon(Icons.search, size: 80.sp, color: Colors.white24),
           SizedBox(height: 12.h),
           Text(
-            'Search for a movie...',
+            StringsManager.searchforamovie.tr(),
             style: TextStyle(color: Colors.white38, fontSize: 16.sp),
           ),
         ],

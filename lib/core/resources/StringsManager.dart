@@ -37,4 +37,24 @@ abstract final class StringsManager {
   static const cast="Cast";
   static const genres="Genres";
   static const search="Search";
+  static const seemore="See More";
+  static const movies="Movies";
+  static const nomoviesfound="No movies found";
+  static const searchmovies="Search movies...";
+  static const noresultsfound="No results found";
+  static const searchforamovie="Search for a movie...";
+  static const somethingwentwrong="Something went wrong";
+  static const Googlesigninfailed="Google sign-in failed";
+  static const loginfailed="Login failed";
+  static const invalidemail="Invalid email";
+  static const passwordtooshort = "Password too short";
+  static const passwordsdonotmatch="Passwords do not match";
+  static const passwordresetemailsent="Password reset email sent. Check your inbox.";
+  static const startingtorrent="Starting torrent...";
+  static const remove="Remove";
+  static const removefromwishlist="Remove from wishlist?";
+  static const character="Character";
+  static const  selectquality= "Select Quality";
+  static const  pagenotfound="Page not found:";
+
 }

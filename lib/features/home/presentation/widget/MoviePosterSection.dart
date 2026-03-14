@@ -64,7 +64,7 @@ class _MoviepostersectionState extends State<Moviepostersection> {
     } catch (e) {
       if (!mounted) return;
       setState(() => _status = _WishlistStatus.notInWishlist);
-      _showError(e.toString());
+      _showError(e.toString().tr());
     }
   }
 
@@ -95,7 +95,7 @@ class _MoviepostersectionState extends State<Moviepostersection> {
       if (!mounted) return;
       setState(() =>
           _status = wasInWishlist ? _WishlistStatus.inWishlist : _WishlistStatus.notInWishlist);
-      _showError(e.toString());
+      _showError(e.toString().tr());
     }
   }
 
@@ -245,7 +245,7 @@ class _MoviepostersectionState extends State<Moviepostersection> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 12),
               child: Text(
-                'Select Quality',
+                StringsManager.selectquality.tr(),
                 style: TextStyle(
                   color: ColorsManager.SecondaryColor,
                   fontSize: 16,

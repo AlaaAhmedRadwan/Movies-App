@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/resources/ColorsManager.dart';
 
@@ -49,7 +50,7 @@ class GenreTabBar extends StatelessWidget
                   color: ColorsManager.onPrimaryColor,
                 ),
               ),
-              child: Text(genre),
+              child: Text(genre.tr()),
             ),
           );
         }).toList(),

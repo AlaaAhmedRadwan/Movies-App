@@ -3,8 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../cubit/movies_cubit.dart';
 import '../../../cubit/movies_state.dart';
+import '../../Search/widget/MovieGrid.dart';
 import '../widget/GenreTabBar.dart';
-import '../widget/MovieGrid.dart';
+
 
 class BrowseTab extends StatefulWidget {
 

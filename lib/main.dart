@@ -7,6 +7,7 @@ import 'core/di/get_it.dart';
 import 'core/routing/app_router.dart';
 
 void main() async {
+  setupDependencies();
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp();

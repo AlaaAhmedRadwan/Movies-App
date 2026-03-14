@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movies_app/core/resources/ColorsManager.dart';
+import 'package:movies_app/core/resources/StringsManager.dart';
 import 'package:movies_app/core/routing/app_router.dart';
 import 'package:movies_app/features/home/domain/entities/movie.dart';
 import 'package:movies_app/features/home/presentation/cubit/movies_cubit.dart';
@@ -72,7 +74,6 @@ class _HomeTapState extends State<HomeTap> {
 
           return Stack(
             children: [
-              // Background: blurred poster of selected movie
               Positioned.fill(
                 child: CachedNetworkImage(
                   imageUrl: featured.poster,
@@ -96,7 +97,6 @@ class _HomeTapState extends State<HomeTap> {
               SafeArea(
                 child: Column(
                   children: [
-                    // ── App bar row ──────────────────────────────────────
                     Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: 20.w, vertical: 12.h),
@@ -104,7 +104,7 @@ class _HomeTapState extends State<HomeTap> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Movies',
+                            StringsManager.movies.tr(),
                             style: TextStyle(
                               color: ColorsManager.SecondaryColor,
                               fontSize: 22.sp,
@@ -129,7 +129,6 @@ class _HomeTapState extends State<HomeTap> {
                       ),
                     ),
 
-                    // ── Carousel ─────────────────────────────────────────
                     Expanded(
                       child: PageView.builder(
                         onPageChanged: (index) {
@@ -145,8 +144,6 @@ class _HomeTapState extends State<HomeTap> {
                       ),
                     ),
 
-
-                    // ── Featured movie info ───────────────────────────────
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20.w),
                       child: Row(
@@ -169,14 +166,19 @@ class _HomeTapState extends State<HomeTap> {
                                 AppRouter.movieDetails, extra: featured),
                             child: Row(
                               children: [
-                                Text(
-                                  'See More',
+                                TextButton(onPressed: () {
+                                  context.push(
+                                    AppRouter.browse,
+
+                                  );
+                                }, child: Text(
+                                  StringsManager.seemore.tr(),
                                   style: TextStyle(
                                     color: ColorsManager.onPrimaryColor,
                                     fontSize: 13.sp,
                                     fontWeight: FontWeight.w500,
                                   ),
-                                ),
+                                ),),
                                 const SizedBox(width: 4),
                                 const Icon(Icons.arrow_forward,
                                     color: ColorsManager.onPrimaryColor,
@@ -189,9 +191,6 @@ class _HomeTapState extends State<HomeTap> {
                     ),
 
                     SizedBox(height: 12.h),
-
-
-                    // ── Horizontal movie list ────────────────────────────
                     SizedBox(
                       height: 180,
                       child: ListView.builder(

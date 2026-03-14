@@ -41,8 +41,8 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
       if (!mounted) return;
 
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(StringsManager.checkPassword),
+        SnackBar(
+          content: Text(StringsManager.checkPassword.tr()),
           backgroundColor: Colors.green,
         ),
       );
@@ -51,7 +51,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(e.message ?? 'Something went wrong'),
+          content: Text(e.message?.tr() ?? StringsManager.somethingwentwrong.tr()),
           backgroundColor: Colors.red,
         ),
       );

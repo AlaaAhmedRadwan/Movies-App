@@ -63,7 +63,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(e.message ?? 'Something went wrong'),
+          content: Text(e.message?.tr() ?? StringsManager.somethingwentwrong.tr()),
           backgroundColor: Colors.red,
         ),
       );
@@ -124,7 +124,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   validator: (v) =>
                   v != null && v.contains('@')
                       ? null
-                      : 'Invalid email',
+                      : StringsManager.invalidemail.tr(),
                 ),
 
                 SizedBox(height: 16.h),
@@ -138,7 +138,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   validator: (v) =>
                   v != null && v.length >= 6
                       ? null
-                      : 'Password too short',
+                      : StringsManager.passwordtooshort.tr(),
                 ),
 
                 SizedBox(height: 16.h),
@@ -152,7 +152,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   validator: (v) =>
                   v == passwordController.text
                       ? null
-                      : 'Passwords do not match',
+                      : StringsManager.passwordsdonotmatch.tr(),
                 ),
 
                 SizedBox(height: 16.h),

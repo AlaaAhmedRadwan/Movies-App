@@ -10,6 +10,8 @@ import 'package:movies_app/core/strings_manager/AppStrings.dart';
 import 'package:movies_app/core/utils/user_preferences.dart';
 import 'package:movies_app/features/auth/presentation/widgets/CustomAuthTextField.dart';
 
+import '../../../../core/resources/StringsManager.dart';
+
 class UpdateProfileScreen extends StatefulWidget {
   const UpdateProfileScreen({super.key});
 
@@ -295,7 +297,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
     } catch (e) {
       if (!mounted) return;
       messenger.showSnackBar(
-        SnackBar(content: Text(e.toString()), backgroundColor: Colors.red),
+        SnackBar(content: Text(e.toString().tr()), backgroundColor: Colors.red),
       );
     } finally {
       if (mounted) setState(() => _isLoading = false);
@@ -309,15 +311,15 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: user!.email!);
       if (!mounted) return;
       messenger.showSnackBar(
-        const SnackBar(
-          content: Text('Password reset email sent. Check your inbox.'),
+        SnackBar(
+          content: Text(StringsManager.passwordresetemailsent.tr()),
           backgroundColor: Colors.green,
         ),
       );
     } catch (e) {
       if (!mounted) return;
       messenger.showSnackBar(
-        SnackBar(content: Text(e.toString()), backgroundColor: Colors.red),
+        SnackBar(content: Text(e.toString().tr()), backgroundColor: Colors.red),
       );
     }
   }
@@ -358,7 +360,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
       } catch (e) {
         if (!mounted) return;
         messenger.showSnackBar(
-          SnackBar(content: Text(e.toString()), backgroundColor: Colors.red),
+          SnackBar(content: Text(e.toString().tr()), backgroundColor: Colors.red),
         );
       }
     }

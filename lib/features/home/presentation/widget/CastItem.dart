@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/resources/ColorsManager.dart';
+import 'package:movies_app/core/resources/StringsManager.dart';
 
 import '../../../../model/Castmodel.dart';
 
@@ -54,7 +56,7 @@ class Castitem extends StatelessWidget {
                children: [
 
              Text(
-             "Name : ${cast.name}",
+    "${StringsManager.name.tr()}: ${cast.name}",
                 style: TextStyle(
                    color: ColorsManager.SecondaryColor,
                fontSize: 20,
@@ -62,7 +64,7 @@ class Castitem extends StatelessWidget {
            ),),
 
           Text(
-          "Character : ${cast.character}",
+          "${StringsManager.character.tr() }: ${cast.character}",
               style: TextStyle(
               color: ColorsManager.SecondaryColor,
               fontSize: 20,

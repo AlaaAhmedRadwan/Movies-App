@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:movies_app/core/di/get_it.dart';
 import 'package:movies_app/core/resources/AssetsManager.dart';
 import 'package:movies_app/core/resources/ColorsManager.dart';
+import 'package:movies_app/core/resources/StringsManager.dart';
 import 'package:movies_app/core/routing/app_router.dart';
 import 'package:movies_app/core/strings_manager/AppStrings.dart';
 import 'package:movies_app/core/utils/user_preferences.dart';
@@ -303,7 +304,7 @@ class _ProfileTabState extends State<ProfileTab>
         backgroundColor: ColorsManager.onSecondaryColor,
         title: Text(item.title,
             style: const TextStyle(color: ColorsManager.SecondaryColor)),
-        content: const Text('Remove from wishlist?',
+        content: Text(StringsManager.removefromwishlist.tr(),
             style: TextStyle(color: Colors.grey)),
         actions: [
           TextButton(
@@ -313,7 +314,7 @@ class _ProfileTabState extends State<ProfileTab>
           ),
           TextButton(
             onPressed: () => Navigator.pop(ctx, true),
-            child: const Text('Remove',
+            child: Text(StringsManager.remove.tr(),
                 style: TextStyle(color: ColorsManager.teritaryColor)),
           ),
         ],

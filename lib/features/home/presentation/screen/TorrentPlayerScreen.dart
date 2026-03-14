@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_go_torrent_streamer/flutter_go_torrent_streamer.dart';
+import 'package:movies_app/core/resources/StringsManager.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:video_player/video_player.dart';
 
@@ -29,7 +31,7 @@ class _TorrentPlayerScreenState extends State<TorrentPlayerScreen> {
   VideoPlayerController? _videoController;
 
   bool _isBuffering = true;
-  String _statusText = 'Starting torrent...';
+  String _statusText = StringsManager.startingtorrent.tr();
   double _progress = 0;
   Timer? _pollTimer;
 

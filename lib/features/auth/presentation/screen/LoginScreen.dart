@@ -8,6 +8,7 @@ import 'package:movies_app/core/routing/app_router.dart';
 
 import 'package:movies_app/core/utils/validators.dart';
 import 'package:movies_app/features/auth/presentation/widgets/LanguageToggle.dart';
+import '../../../../core/resources/StringsManager.dart';
 import '../../../../core/strings_manager/AppStrings.dart';
 import '../widgets/CustomAuthTextField.dart';
 
@@ -52,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
     } catch (e) {
       if (!mounted) return;
       final message = e is FirebaseAuthException
-          ? (e.message ?? 'Google sign-in failed')
+          ? (e.message?.tr() ??  StringsManager.Googlesigninfailed.tr())
           : e.toString();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(message), backgroundColor: Colors.red),
@@ -79,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(e.message ?? 'Login failed'),
+          content: Text(e.message?.tr() ?? StringsManager.loginfailed.tr()),
           backgroundColor: Colors.red,
         ),
       );

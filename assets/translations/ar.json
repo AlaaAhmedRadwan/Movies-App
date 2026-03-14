@@ -71,7 +71,27 @@
   "update_profile_delete_title": "حذف الحساب",
   "update_profile_delete_message": "هذا الإجراء لا يمكن التراجع عنه. هل أنت متأكد؟",
   "update_profile_delete": "حذف",
-  "search":"بحث"
+  "search":"بحث",
+  "seemore": "عرض المزيد",
+  "movies": "الأفلام",
+  "nomoviesfound": "لم يتم العثور على أفلام",
+  "searchmovies": "ابحث عن فيلم...",
+  "noresultsfound": "لا توجد نتائج",
+  "searchforamovie": "ابحث عن فيلم...",
+  "somethingwentwrong": "حدث خطأ ما",
+  "Googlesigninfailed": "فشل تسجيل الدخول بواسطة جوجل",
+  "loginfailed": "فشل تسجيل الدخول",
+  "checkPassword": "تم إرسال بريد إعادة تعيين كلمة المرور. تحقق من صندوق الوارد.",
+  "invalidemail": "البريد الإلكتروني غير صالح",
+  "passwordtooshort": "كلمة المرور قصيرة جدًا",
+  "passwordsdonotmatch": "كلمتا المرور غير متطابقتين",
+  "passwordresetemailsent": "تم إرسال بريد إعادة تعيين كلمة المرور. تحقق من صندوق الوارد.",
+  "startingtorrent": "جارٍ بدء تحميل التورنت...",
+  "remove": "إزالة",
+  "removefromwishlist": "إزالة من قائمة المفضلة؟",
+  "character": "الشخصية",
+  "selectquality": "اختر الجودة",
+  "pagenotfound": "الصفحة غير موجودة:"
 
 
 

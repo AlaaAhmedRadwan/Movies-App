@@ -30,7 +30,7 @@ class MovieSummarySection extends StatelessWidget {
 
           SizedBox(height: 8.h),
           Text(
-            summary,
+            summary.tr(),
             style: TextStyle(
               color: ColorsManager.SecondaryColor,
               fontSize: 16.sp,
