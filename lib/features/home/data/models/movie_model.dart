@@ -100,8 +100,8 @@ class MovieModel extends Movie {
       year: (json['year'] as num).toInt(),
       rating: (json['rating'] as num).toDouble(),
       runtime: (json['runtime'] as num).toInt(),
-      genres:
-          (json['genres'] as List<dynamic>).map((e) => e as String).toList(),
+      genres: (json['genres'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
+
       like_count: (json['like_count'] as num?)?.toInt(),
       summary: json['summary'] as String,
       poster: json['medium_cover_image'] as String,

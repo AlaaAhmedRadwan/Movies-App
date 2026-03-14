@@ -6,6 +6,7 @@ import 'package:movies_app/core/network/dio_factory.dart';
 
 import 'package:movies_app/features/home/data/remote/movies_api_service.dart';
 import 'package:movies_app/features/home/data/repositories/movies_repository_impl.dart';
+import 'package:movies_app/features/home/data/services/firebase_movies_service.dart';
 
 import 'package:movies_app/features/home/domain/repositories/movies_repository.dart';
 import 'package:movies_app/features/home/domain/usecases/get_movie_details_usecase.dart';
@@ -17,6 +18,10 @@ import 'package:movies_app/features/home/presentation/cubit/movies_cubit.dart';
 final sl = GetIt.instance;
 
 void setupDependencies() {
+  sl.registerLazySingleton<FirebaseMoviesService>(
+    () => FirebaseMoviesService(),
+  );
+
   sl.registerLazySingleton<Dio>(
         () => DioFactory.create(),
   );

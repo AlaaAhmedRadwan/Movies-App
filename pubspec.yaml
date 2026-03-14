@@ -39,6 +39,7 @@ dependencies:
   flutter_native_splash: ^2.4.7
   firebase_core: ^3.6.0
   firebase_auth: ^5.3.0
+  cloud_firestore: ^5.4.4
   flutter_bloc: ^9.1.0
   dio: ^5.9.0
   retrofit: ^4.4.1

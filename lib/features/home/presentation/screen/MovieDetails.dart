@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/di/get_it.dart';
 import 'package:movies_app/core/resources/ColorsManager.dart';
+import 'package:movies_app/features/home/data/services/firebase_movies_service.dart';
+import 'package:movies_app/features/home/domain/entities/history_movie.dart';
 import 'package:movies_app/features/home/domain/entities/movie.dart';
 import 'package:movies_app/features/home/presentation/cubit/movie_details_cubit.dart';
 import 'package:movies_app/features/home/presentation/cubit/movie_details_state.dart';
@@ -13,15 +15,37 @@ import 'package:movies_app/features/home/presentation/widget/MovieScreenshotsSec
 import 'package:movies_app/features/home/presentation/widget/MovieSummarySection.dart';
 import 'package:movies_app/features/home/presentation/widget/SimilarMoviesSection.dart';
 
-class Moviedetails extends StatelessWidget {
+class Moviedetails extends StatefulWidget {
   final Movie movie;
 
   const Moviedetails({super.key, required this.movie});
 
   @override
+  State<Moviedetails> createState() => _MoviedetailsState();
+}
+
+class _MoviedetailsState extends State<Moviedetails> {
+  @override
+  void initState() {
+    super.initState();
+    _addToHistory();
+  }
+
+  Future<void> _addToHistory() async {
+    try {
+      await sl<FirebaseMoviesService>().addToHistory(HistoryMovie(
+        id: widget.movie.id,
+        title: widget.movie.title,
+        poster: widget.movie.poster,
+        watchedAt: DateTime.now(),
+      ));
+    } catch (_) {}
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => sl<MovieDetailsCubit>()..getDetails(movie.id),
+      create: (_) => sl<MovieDetailsCubit>()..getDetails(widget.movie.id),
       child: Scaffold(
         backgroundColor: ColorsManager.PrimaryColor,
         body: SingleChildScrollView(
@@ -35,14 +59,16 @@ class Moviedetails extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Moviepostersection(
-                    posterUrl: movie.poster,
-                    rating: movie.rating,
-
-                    title: movie.title,
-                    runtime: movie.runtime,
-                    year: movie.year,
-                    likes: state is MovieDetailsLoaded ? (state.details.likeCount ?? 0) : 0,
-                    torrents: movie.torrents,
+                    posterUrl: widget.movie.poster,
+                    rating: widget.movie.rating,
+                    title: widget.movie.title,
+                    runtime: widget.movie.runtime,
+                    year: widget.movie.year,
+                    likes: state is MovieDetailsLoaded
+                        ? (state.details.likeCount ?? 0)
+                        : 0,
+                    torrents: widget.movie.torrents,
+                    movieId: widget.movie.id,
                   ),
                   SizedBox(height: 16.h),
                   SizedBox(height: 16.h),
@@ -56,9 +82,9 @@ class Moviedetails extends StatelessWidget {
                   SizedBox(height: 16.h),
                   SimilarMoviesSection(),
                   SizedBox(height: 16.h),
-                  MovieSummarySection(summary: movie.summary),
+                  MovieSummarySection(summary: widget.movie.summary),
                   Moviecastsection(),
-                  MovieGenresSection(genres: movie.genres),
+                  MovieGenresSection(genres: widget.movie.genres),
                 ],
               );
             },
