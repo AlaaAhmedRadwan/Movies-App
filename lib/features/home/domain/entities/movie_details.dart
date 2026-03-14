@@ -1,3 +1,5 @@
+import 'package:movies_app/model/Castmodel.dart';
+
 import 'movie.dart';
 
 class MovieDetails extends Movie {
@@ -6,6 +8,7 @@ class MovieDetails extends Movie {
   final String? mediumScreenshot1;
   final String? mediumScreenshot2;
   final String? mediumScreenshot3;
+  final List<Castmodel> cast;
 
   List<String> get screenshots => [
         if (mediumScreenshot1 != null && mediumScreenshot1!.isNotEmpty)
@@ -48,5 +51,6 @@ class MovieDetails extends Movie {
     this.mediumScreenshot1,
     this.mediumScreenshot2,
     this.mediumScreenshot3,
+    this.cast = const [],
   });
 }

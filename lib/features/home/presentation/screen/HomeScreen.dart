@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/di/get_it.dart';
 import 'package:movies_app/core/resources/ColorsManager.dart';
+import 'package:movies_app/features/home/presentation/Tabs/Browse/screen/Browse_tab.dart';
 import 'package:movies_app/features/home/presentation/Tabs/Home/HomeTab.dart';
 import 'package:movies_app/features/home/presentation/Tabs/Profile/Profile_tab.dart';
 import 'package:movies_app/features/home/presentation/cubit/movies_cubit.dart';
 import 'package:movies_app/features/home/presentation/cubit/search_cubit.dart';
 
-import '../Tabs/Browse/Browse_tab.dart';
 import '../Tabs/Search/screen/SearchTab.dart';
 
 class HomeScreen extends StatefulWidget {

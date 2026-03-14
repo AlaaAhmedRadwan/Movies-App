@@ -1,3 +1,5 @@
+import 'package:movies_app/model/Castmodel.dart';
+
 import '../../domain/entities/movie_details.dart';
 import 'movie_model.dart';
 
@@ -7,6 +9,7 @@ class MovieDetailsModel extends MovieModel {
   final String? mediumScreenshot1;
   final String? mediumScreenshot2;
   final String? mediumScreenshot3;
+  final List<Castmodel> cast;
 
   MovieDetailsModel({
     required super.id,
@@ -40,12 +43,21 @@ class MovieDetailsModel extends MovieModel {
     this.mediumScreenshot1,
     this.mediumScreenshot2,
     this.mediumScreenshot3,
+    this.cast = const [],
   });
 
   factory MovieDetailsModel.fromJson(Map<String, dynamic> json) {
     final rawTorrents = (json['torrents'] as List<dynamic>?)
         ?.map((e) => Torrents.fromJson(e as Map<String, dynamic>))
         .toList();
+
+    final rawCast = (json['cast'] as List<dynamic>?)
+        ?.map((e) => Castmodel(
+              name: e['name'] as String? ?? '',
+              character: e['character_name'] as String? ?? '',
+              image: e['url_small_image'] as String? ?? '',
+            ))
+        .toList() ?? [];
 
     return MovieDetailsModel(
       id: (json['id'] as num).toInt(),
@@ -79,6 +91,7 @@ class MovieDetailsModel extends MovieModel {
       mediumScreenshot1: json['medium_screenshot_image1'] as String?,
       mediumScreenshot2: json['medium_screenshot_image2'] as String?,
       mediumScreenshot3: json['medium_screenshot_image3'] as String?,
+      cast: rawCast,
     );
   }
 
@@ -114,6 +127,7 @@ class MovieDetailsModel extends MovieModel {
         mediumScreenshot1: mediumScreenshot1,
         mediumScreenshot2: mediumScreenshot2,
         mediumScreenshot3: mediumScreenshot3,
+        cast: cast,
       );
 }
 

@@ -1,65 +1,57 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movies_app/core/resources/ColorsManager.dart';
 import 'package:movies_app/core/resources/StringsManager.dart';
+import 'package:movies_app/core/routing/app_router.dart';
+import 'package:movies_app/features/home/domain/entities/movie.dart';
 
 import 'SimilarMovieItem.dart';
 
 class SimilarMoviesSection extends StatelessWidget {
-  const SimilarMoviesSection({super.key});
+  final List<Movie> movies;
+
+  const SimilarMoviesSection({super.key, required this.movies});
 
   @override
   Widget build(BuildContext context) {
-
-    final List<Map<String, dynamic>> movies = [
-      {
-        "image": "https://picsum.photos/200/300?1",
-        "rating": 7.7,
-      },
-      {
-        "image": "https://picsum.photos/200/300?2",
-        "rating": 7.7,
-      },
-      {
-        "image": "https://picsum.photos/200/300?3",
-        "rating": 7.7,
-      },
-      {
-        "image": "https://picsum.photos/200/300?4",
-        "rating": 7.7,
-      },
-    ];
-
+    if (movies.isEmpty) return const SizedBox.shrink();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          StringsManager.similar.tr(),
-          style: TextStyle(
-            color: ColorsManager.SecondaryColor,
-            fontSize: 24,
-            fontWeight: FontWeight.w700,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Text(
+            StringsManager.similar.tr(),
+            style: const TextStyle(
+              color: ColorsManager.SecondaryColor,
+              fontSize: 24,
+              fontWeight: FontWeight.w700,
+            ),
           ),
         ),
-
         SizedBox(height: 10.h),
         Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: GridView.builder(
             shrinkWrap: true,
-            physics:  NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: movies.length,
-            gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               mainAxisSpacing: 16,
               crossAxisSpacing: 16,
               childAspectRatio: 0.7,
             ),
             itemBuilder: (context, index) {
-              return SimilarMovieItem(
-                imageUrl: movies[index]["image"],
-                rating: movies[index]["rating"],
+              final movie = movies[index];
+              return GestureDetector(
+                onTap: () => context.push(AppRouter.movieDetails, extra: movie),
+                child: SimilarMovieItem(
+                  imageUrl: movie.poster,
+                  rating: movie.rating,
+                ),
               );
             },
           ),

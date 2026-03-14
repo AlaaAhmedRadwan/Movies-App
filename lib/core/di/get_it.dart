@@ -61,6 +61,7 @@ void setupDependencies() {
   sl.registerFactory<MovieDetailsCubit>(
         () => MovieDetailsCubit(
       sl<GetMovieDetailsUseCase>(),
+      sl<GetMoviesUseCase>(),
     ),
   );
 

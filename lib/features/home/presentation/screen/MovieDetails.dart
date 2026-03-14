@@ -80,10 +80,18 @@ class _MoviedetailsState extends State<Moviedetails> {
                   else
                     MovieScreenshotsSection(screenshots: screenshots),
                   SizedBox(height: 16.h),
-                  SimilarMoviesSection(),
+                  SimilarMoviesSection(
+                    movies: state is MovieDetailsLoaded
+                        ? state.similarMovies
+                        : [],
+                  ),
                   SizedBox(height: 16.h),
                   MovieSummarySection(summary: widget.movie.summary),
-                  Moviecastsection(),
+                  Moviecastsection(
+                    cast: state is MovieDetailsLoaded
+                        ? state.details.cast
+                        : [],
+                  ),
                   MovieGenresSection(genres: widget.movie.genres),
                 ],
               );
