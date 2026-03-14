@@ -21,6 +21,7 @@ Torrents _$TorrentsFromJson(Map<String, dynamic> json) => Torrents(
   sizeBytes: (json['size_bytes'] as num?)?.toInt(),
   dateUploaded: json['date_uploaded'] as String?,
   dateUploadedUnix: (json['date_uploaded_unix'] as num?)?.toInt(),
+  like_count: (json['like_count'] as num?)?.toInt(),
 );
 
 Map<String, dynamic> _$TorrentsToJson(Torrents instance) => <String, dynamic>{
@@ -34,6 +35,7 @@ Map<String, dynamic> _$TorrentsToJson(Torrents instance) => <String, dynamic>{
   'audio_channels': instance.audioChannels,
   'seeds': instance.seeds,
   'peers': instance.peers,
+  'like_count': instance.like_count,
   'size': instance.size,
   'size_bytes': instance.sizeBytes,
   'date_uploaded': instance.dateUploaded,

@@ -73,7 +73,10 @@ class _SearchTabState extends State<SearchTab> {
                     return Center(
                       child: Text(
                         'No results found',
-                        style: TextStyle(color: Colors.white54, fontSize: 16.sp),
+                        style: TextStyle(
+                          color: Colors.white54,
+                          fontSize: 16.sp,
+                        ),
                       ),
                     );
                   }

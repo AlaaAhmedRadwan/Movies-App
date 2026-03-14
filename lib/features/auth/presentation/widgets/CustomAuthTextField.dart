@@ -8,7 +8,7 @@ class CustomAuthTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
-  final Function(String)? onChanged;
+  final void Function(String)? onChanged;
 
   const CustomAuthTextField({
     super.key,
@@ -18,7 +18,7 @@ class CustomAuthTextField extends StatelessWidget {
     this.suffixIcon,
     this.controller,
     this.validator,
-     this.onChanged
+    this.onChanged,
   });
 
   @override

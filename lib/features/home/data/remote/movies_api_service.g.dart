@@ -22,9 +22,18 @@ class _MoviesApiService implements MoviesApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<MovieResponse> getMovies(int page, int limit) async {
+  Future<MovieResponse> getMovies(
+    int page,
+    int limit, {
+    String? queryTerm,
+  }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'page': page, r'limit': limit};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'limit': limit,
+      r'query_term': queryTerm,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<MovieResponse>(
