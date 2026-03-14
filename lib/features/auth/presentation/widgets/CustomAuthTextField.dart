@@ -8,6 +8,7 @@ class CustomAuthTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final void Function(String)? onChanged;
 
   const CustomAuthTextField({
     super.key,
@@ -17,6 +18,7 @@ class CustomAuthTextField extends StatelessWidget {
     this.suffixIcon,
     this.controller,
     this.validator,
+    this.onChanged,
   });
 
   @override
@@ -25,6 +27,7 @@ class CustomAuthTextField extends StatelessWidget {
       controller: controller,
       obscureText: isPassword,
       validator: validator,
+      onChanged: onChanged,
       style: const TextStyle(color: Colors.white),
       decoration: InputDecoration(
         filled: true,

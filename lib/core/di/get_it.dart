@@ -13,6 +13,7 @@ import 'package:movies_app/features/home/domain/usecases/get_movies_usecase.dart
 
 import 'package:movies_app/features/home/presentation/cubit/movie_details_cubit.dart';
 import 'package:movies_app/features/home/presentation/cubit/movies_cubit.dart';
+import 'package:movies_app/features/home/presentation/cubit/search_cubit.dart';
 
 final sl = GetIt.instance;
 
@@ -55,6 +56,12 @@ void setupDependencies() {
   sl.registerFactory<MovieDetailsCubit>(
         () => MovieDetailsCubit(
       sl<GetMovieDetailsUseCase>(),
+    ),
+  );
+
+  sl.registerFactory<SearchCubit>(
+        () => SearchCubit(
+      sl<GetMoviesUseCase>(),
     ),
   );
 }

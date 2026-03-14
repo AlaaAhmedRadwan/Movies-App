@@ -5,6 +5,7 @@ import 'package:movies_app/core/resources/ColorsManager.dart';
 import 'package:movies_app/features/home/presentation/Tabs/Home/HomeTab.dart';
 import 'package:movies_app/features/home/presentation/Tabs/Profile/Profile_tab.dart';
 import 'package:movies_app/features/home/presentation/cubit/movies_cubit.dart';
+import 'package:movies_app/features/home/presentation/cubit/search_cubit.dart';
 
 import '../Tabs/Browse/screen/Browse_tab.dart';
 import '../Tabs/Search/SearchTab.dart';
@@ -34,8 +35,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => sl<MoviesCubit>()..getMovies(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => sl<MoviesCubit>()..getMovies()),
+        BlocProvider(create: (_) => sl<SearchCubit>()),
+      ],
       child: Scaffold(
         backgroundColor: Colors.black,
         body: tabs[selectedIndex],

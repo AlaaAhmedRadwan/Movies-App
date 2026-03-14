@@ -18,6 +18,7 @@ abstract class MoviesApiService {
   Future<MovieResponse> getMovies(
       @Query('page') int page,
       @Query('limit') int limit,
+      {@Query('query_term') String? queryTerm}
   );
 
   @GET('movie_details.json')
