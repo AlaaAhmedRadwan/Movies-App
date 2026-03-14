@@ -8,6 +8,7 @@ import '../../../core/resources/ColorsManager.dart';
 import '../../../core/resources/StringsManager.dart';
 import '../../../core/reusable/CustomButton.dart';
 import '../../../core/routing/app_router.dart';
+import '../../../core/utils/user_preferences.dart';
 import '../../../model/OnboardingModel.dart';
 
 class OnboardingItem extends StatefulWidget {
@@ -98,9 +99,10 @@ class _OnboardingItemState extends State<OnboardingItem> {
                                   title: isLast
                                       ? StringsManager.finish.tr()
                                       : StringsManager.next.tr(),
-                                  onClick: () {
+                                  onClick: () async {
                                     if (isLast) {
-                                      context.go(AppRouter.login);
+                                      await UserPreferences.saveOnboardingSeen();
+                                      if (context.mounted) context.go(AppRouter.login);
                                     } else {
                                       widget.controller.nextPage(
                                         duration: const Duration(milliseconds: 300),
