@@ -2,8 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/core/resources/AssetsManager.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movies_app/core/resources/ColorsManager.dart';
+import 'package:movies_app/core/routing/app_router.dart';
+import 'package:movies_app/features/home/domain/entities/movie.dart';
 import 'package:movies_app/features/home/presentation/cubit/movies_cubit.dart';
 import 'package:movies_app/features/home/presentation/cubit/movies_state.dart';
 import 'package:movies_app/features/home/presentation/widget/Moviesitem.dart';
@@ -17,9 +19,9 @@ class HomeTap extends StatefulWidget {
 }
 
 class _HomeTapState extends State<HomeTap> {
-  final PageController controller = PageController(viewportFraction: 0.5);
+  final PageController _pageController = PageController(viewportFraction: 0.5);
   final ScrollController _scrollController = ScrollController();
-  int selectedIndex = 0;
+  int _selectedIndex = 0;
 
   @override
   void initState() {
@@ -36,7 +38,7 @@ class _HomeTapState extends State<HomeTap> {
 
   @override
   void dispose() {
-    controller.dispose();
+    _pageController.dispose();
     _scrollController.dispose();
     super.dispose();
   }
@@ -66,11 +68,14 @@ class _HomeTapState extends State<HomeTap> {
             );
           }
 
+          final Movie featured = movies[_selectedIndex];
+
           return Stack(
             children: [
+              // Background: blurred poster of selected movie
               Positioned.fill(
                 child: CachedNetworkImage(
-                  imageUrl: movies[selectedIndex].poster,
+                  imageUrl: featured.poster,
                   fit: BoxFit.cover,
                   errorWidget: (_, __, ___) =>
                       Container(color: Colors.grey[900]),
@@ -82,106 +87,141 @@ class _HomeTapState extends State<HomeTap> {
                     gradient: LinearGradient(
                       begin: Alignment.bottomCenter,
                       end: Alignment.topCenter,
-                      colors: [Colors.black, Colors.transparent],
+                      colors: [Colors.black, Colors.black54],
                     ),
                   ),
                 ),
               ),
+
               SafeArea(
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        Assetsmanager.Available,
-                        width: 267.w,
-                        fit: BoxFit.fitWidth,
-                      ),
-                      Expanded(
-                        child: PageView.builder(
-                          onPageChanged: (index) {
-                            setState(() => selectedIndex = index);
-                          },
-                          controller: controller,
-                          itemCount: movies.length,
-                          itemBuilder: (context, index) => Moviesitem(
-                            index: index,
-                            selectedIndex: selectedIndex,
-                            movie: movies[index],
+                child: Column(
+                  children: [
+                    // ── App bar row ──────────────────────────────────────
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 20.w, vertical: 12.h),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Movies',
+                            style: TextStyle(
+                              color: ColorsManager.SecondaryColor,
+                              fontSize: 22.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
+                          Row(
+                            children: [
+                              const Icon(Icons.star,
+                                  color: Colors.amber, size: 16),
+                              const SizedBox(width: 4),
+                              Text(
+                                featured.rating.toStringAsFixed(1),
+                                style: TextStyle(
+                                  color: ColorsManager.SecondaryColor,
+                                  fontSize: 14.sp,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // ── Carousel ─────────────────────────────────────────
+                    Expanded(
+                      child: PageView.builder(
+                        onPageChanged: (index) {
+                          setState(() => _selectedIndex = index);
+                        },
+                        controller: _pageController,
+                        itemCount: movies.length,
+                        itemBuilder: (context, index) => Moviesitem(
+                          index: index,
+                          selectedIndex: _selectedIndex,
+                          movie: movies[index],
                         ),
                       ),
-                      SizedBox(height: 10.h),
-                      Image.asset(
-                        Assetsmanager.watch,
-                        width: 354.w,
-                        fit: BoxFit.fitWidth,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              movies[selectedIndex].genres.isNotEmpty
-                                  ? movies[selectedIndex].genres.first
-                                  : '',
-                              style: const TextStyle(
+                    ),
+
+
+                    // ── Featured movie info ───────────────────────────────
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              featured.title,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
                                 color: ColorsManager.SecondaryColor,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                            Row(
+                          ),
+                          const SizedBox(width: 8),
+                          GestureDetector(
+                            onTap: () => context.push(
+                                AppRouter.movieDetails, extra: featured),
+                            child: Row(
                               children: [
-                                TextButton(
-                                  onPressed: () {},
-                                  child: const Text(
-                                    'See More',
-                                    style: TextStyle(
-                                      color: ColorsManager.onPrimaryColor,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                    ),
+                                Text(
+                                  'See More',
+                                  style: TextStyle(
+                                    color: ColorsManager.onPrimaryColor,
+                                    fontSize: 13.sp,
+                                    fontWeight: FontWeight.w500,
                                   ),
                                 ),
+                                const SizedBox(width: 4),
                                 const Icon(Icons.arrow_forward,
-                                    color: ColorsManager.onPrimaryColor),
+                                    color: ColorsManager.onPrimaryColor,
+                                    size: 16),
                               ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        height: 180,
-                        child: ListView.builder(
-                          controller: _scrollController,
-                          scrollDirection: Axis.horizontal,
-                          padding:
-                              const EdgeInsets.symmetric(horizontal: 20),
-                          itemCount: movies.length +
-                              (state.isLoadingMore ? 1 : 0),
-                          itemBuilder: (context, index) {
-                            if (index == movies.length) {
-                              return const Padding(
-                                padding:
-                                    EdgeInsets.symmetric(horizontal: 16),
-                                child: Center(
-                                  child: SizedBox(
-                                    width: 24,
-                                    height: 24,
-                                    child: CircularProgressIndicator(
-                                        strokeWidth: 2),
-                                  ),
+                    ),
+
+                    SizedBox(height: 12.h),
+
+
+                    // ── Horizontal movie list ────────────────────────────
+                    SizedBox(
+                      height: 180,
+                      child: ListView.builder(
+                        controller: _scrollController,
+                        scrollDirection: Axis.horizontal,
+                        padding:
+                            const EdgeInsets.symmetric(horizontal: 20),
+                        itemCount:
+                            movies.length + (state.isLoadingMore ? 1 : 0),
+                        itemBuilder: (context, index) {
+                          if (index == movies.length) {
+                            return const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 16),
+                              child: Center(
+                                child: SizedBox(
+                                  width: 24,
+                                  height: 24,
+                                  child: CircularProgressIndicator(
+                                      strokeWidth: 2),
                                 ),
-                              );
-                            }
-                            return SmallMovieItem(movie: movies[index]);
-                          },
-                        ),
+                              ),
+                            );
+                          }
+                          return SmallMovieItem(movie: movies[index]);
+                        },
                       ),
-                    ],
-                  ),
+                    ),
+
+                    SizedBox(height: 16.h),
+                  ],
                 ),
               ),
             ],
