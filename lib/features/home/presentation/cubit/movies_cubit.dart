@@ -40,4 +40,21 @@ class MoviesCubit extends Cubit<MoviesState> {
       emit(current.copyWith(isLoadingMore: false));
     }
   }
+  Future<void> searchMovies(String query) async {
+    emit(MoviesLoading());
+    try {
+      final movies = await useCase(page: 1,query: query);
+
+      emit(
+        MoviesLoaded(
+          movies: movies,
+          currentPage: 1,
+          hasMore: false,
+        ),
+      );
+    } catch (e) {
+      emit(MoviesError(e.toString()));
+    }
+  }
+
 }

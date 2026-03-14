@@ -70,8 +70,8 @@
   "update_profile_success": "تم تحديث الملف الشخصي بنجاح",
   "update_profile_delete_title": "حذف الحساب",
   "update_profile_delete_message": "هذا الإجراء لا يمكن التراجع عنه. هل أنت متأكد؟",
-  "update_profile_delete": "حذف"
-
+  "update_profile_delete": "حذف",
+  "search":"بحث"
 
 
 

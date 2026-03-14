@@ -7,7 +7,7 @@ import 'package:movies_app/features/home/presentation/Tabs/Profile/Profile_tab.d
 import 'package:movies_app/features/home/presentation/cubit/movies_cubit.dart';
 
 import '../Tabs/Browse/Browse_tab.dart';
-import '../Tabs/Search/SearchTab.dart';
+import '../Tabs/Search/screen/SearchTab.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

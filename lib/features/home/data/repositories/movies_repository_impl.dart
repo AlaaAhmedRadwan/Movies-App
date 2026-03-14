@@ -9,7 +9,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
   MoviesRepositoryImpl(this.api);
 
   @override
-  Future<List<Movie>> getMovies({int page = 1}) async {
+  Future<List<Movie>> getMovies({int page = 1, String? query,}) async {
     final response = await api.getMovies(page, 20);
     return response.data?.movies ?? [];
   }

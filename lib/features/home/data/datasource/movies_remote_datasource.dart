@@ -16,7 +16,7 @@ class MoviesRemoteDataSourceImpl implements MoviesRemoteDataSource {
       'https://movies-api.accel.li/api/v2/list_movies.json',
     );
 
-    final moviesJson = response.data['data']['movies'] as List;
+    final moviesJson = (response.data['data']['movies'] as List?) ?? [];
 
     return moviesJson.map((json) => MovieModel.fromJson(json)).toList();
   }

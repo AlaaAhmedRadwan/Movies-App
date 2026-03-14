@@ -65,5 +65,6 @@
   "update_profile_success": "Profile updated successfully",
   "update_profile_delete_title": "Delete Account",
   "update_profile_delete_message": "This action is irreversible. Are you sure?",
-  "update_profile_delete": "Delete"
+  "update_profile_delete": "Delete",
+  "search":"Search"
 }

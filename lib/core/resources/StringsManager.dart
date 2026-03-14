@@ -10,7 +10,6 @@ abstract final class StringsManager {
   static const titleOnboarding5 = "title_onboarding5";
   static const descOnboarding5 = "desc_onboarding5";
   static const titleOnboarding6 = "title_onboarding6";
-
   static const exploreNow = "exploreNow";
   static const next = "next";
   static const back = "back";
@@ -37,4 +36,5 @@ abstract final class StringsManager {
   static const checkPassword="Password reset email sent. Check your inbox.";
   static const cast="Cast";
   static const genres="Genres";
+  static const search="Search";
 }

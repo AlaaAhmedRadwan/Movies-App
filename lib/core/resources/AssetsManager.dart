@@ -23,4 +23,6 @@ abstract final class Assetsmanager {
   static const String screenshot1="assets/images/Screenshot1.jpg";
   static const String screenshot2="assets/images/Screenshot2.jpg";
   static const String screenshot3="assets/images/Screenshot3.jpg";
+  static const String search ="assets/images/search.svg";
+  static const String searchempty="assets/images/search empty.png";
 }
