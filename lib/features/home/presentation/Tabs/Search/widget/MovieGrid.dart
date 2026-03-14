@@ -30,70 +30,68 @@ class MovieGrid extends StatelessWidget {
         itemBuilder: (context, index) {
           final movie = movies[index];
           return
-            Container(
-            decoration: BoxDecoration(
+            Material(
               borderRadius: BorderRadius.circular(16),
               color: Colors.grey.shade900,
-            ),
-            child:
-            InkWell(
-             onTap: () {
-               context.push(
-                 AppRouter.movieDetails,
-                 extra: movie,
-               );
-             },
-              child: Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: CachedNetworkImage(
-                      imageUrl: movie.poster,
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                      height: double.infinity,
-                      placeholder: (_, __) => Container(
-                        color: Colors.grey[900],
-                        child: const Center(child: CircularProgressIndicator()),
-                      ),
-                      errorWidget: (_, __, ___) => Container(
-                        color: Colors.grey[800],
-                        child: const Icon(Icons.movie, color: Colors.white54, size: 60),
-                      ),
-                    ),
-                  ),
-
-
-                  Positioned(
-                    top: 10,
-                    left: 10,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
-                      decoration: BoxDecoration(
-                        color: Colors.black.withValues(alpha: 0.7),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Row(
-                        children: [
-                          Text(
-                            movie.rating.toStringAsFixed(1),
-                            style: const TextStyle(color: Colors.white, fontSize: 12),
-                          ),
-                          const SizedBox(width: 4),
-                          const Icon(
-                            Icons.star,
-                            color: ColorsManager.onPrimaryColor,
-                            size: 14,
-                          ),
-                        ],
+              child: InkWell(
+                borderRadius: BorderRadius.circular(16),
+               onTap: () {
+                 context.push(
+                   AppRouter.movieDetails,
+                   extra: movie,
+                 );
+               },
+                child: Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: CachedNetworkImage(
+                        imageUrl: movie.poster,
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        height: double.infinity,
+                        placeholder: (_, __) => Container(
+                          color: Colors.grey[900],
+                          child: const Center(child: CircularProgressIndicator()),
+                        ),
+                        errorWidget: (_, __, ___) => Container(
+                          color: Colors.grey[800],
+                          child: const Icon(Icons.movie, color: Colors.white54, size: 60),
+                        ),
                       ),
                     ),
-                  ),
 
-                ],
+
+                    Positioned(
+                      top: 10,
+                      left: 10,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+                        decoration: BoxDecoration(
+                          color: Colors.black.withValues(alpha: 0.7),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              movie.rating.toStringAsFixed(1),
+                              style: const TextStyle(color: Colors.white, fontSize: 12),
+                            ),
+                            const SizedBox(width: 4),
+                            const Icon(
+                              Icons.star,
+                              color: ColorsManager.onPrimaryColor,
+                              size: 14,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+
+                  ],
+                ),
               ),
-            ),
-          );
+            );
 
         },
       ),

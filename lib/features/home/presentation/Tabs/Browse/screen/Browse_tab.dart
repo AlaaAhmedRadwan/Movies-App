@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/core/resources/ColorsManager.dart';
 
 import '../../../cubit/movies_cubit.dart';
 import '../../../cubit/movies_state.dart';
@@ -39,28 +40,30 @@ class _BrowseTabState extends State<BrowseTab> {
               return movie.genres.contains(selectedGenre);
             }).toList();
 
-            return DefaultTabController(
-              length: genres.length,
-              child:
-                  
-              SafeArea(
-                child: Column(
-                  children: [
-                
-                    GenreTabBar(
-                      genres: genres,
-                      onGenreSelected: (genre) {
-                        setState(() {
-                          selectedGenre = genre;
-                        });
-                      },
-                    ),
-                
-                    Expanded(
-                      child: MovieGrid(movies: filteredMovies),
-                    )
-                
-                  ],
+            return Scaffold(
+backgroundColor: ColorsManager.PrimaryColor,
+             body: DefaultTabController(
+                length: genres.length,
+                child:
+
+                SafeArea(
+                  child: Column(
+                    children: [
+                      GenreTabBar(
+                        genres: genres,
+                        onGenreSelected: (genre) {
+                          setState(() {
+                            selectedGenre = genre;
+                          });
+                        },
+                      ),
+
+                      Expanded(
+                        child: MovieGrid(movies: filteredMovies),
+                      )
+
+                    ],
+                  ),
                 ),
               ),
             );
